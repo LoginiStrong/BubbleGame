@@ -43,7 +43,7 @@ public abstract class GameObject
    }
    
    //probably want to uncomment this, but the sample code would not compile unless I commented this out since I'm not giving you that class.
-   public void run(/*ArrayList<AbstractUnit> units*/)
+   public void run(ArrayList<AbstractUnit> units)
    {
    
    }
