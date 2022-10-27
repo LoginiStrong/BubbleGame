@@ -39,6 +39,8 @@ public class Main extends Application
    Scene menu;
    Scene game;
    
+   String commandState = "";
+
    Game theGame = new Game();
 
    static double deltaTime; 
@@ -142,6 +144,8 @@ public class Main extends Application
       {
           if (event.getCode() == KeyCode.Z) 
           {
+
+
           }
           if(event.getCode() == KeyCode.X)
           {
@@ -149,7 +153,8 @@ public class Main extends Application
           }
           if(event.getCode() == KeyCode.C)
           {
-            
+           
+           
           }
       }
    }
@@ -165,6 +170,7 @@ public class Main extends Application
          int y = (int) me.getY();
          
          //maybe do something here on a click depending on what command is active?
+
          
       }   
    }
