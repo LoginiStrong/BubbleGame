@@ -1,0 +1,116 @@
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+
+public class Player extends GameObject {
+    
+    //default color is Red
+    public Color col = Color.RED;
+
+    //booleans to track if selected and if moving
+    boolean selected = false;
+    boolean moving = false;
+
+    //these are ints to track where the unit needs to move to and how fast
+    int destinationX = 0;
+    int destinationY = 0;
+    float velX = 0;
+    float velY = 0;
+
+    //basic constructor
+    public Player(int x, int y){
+
+        super(x,y,50);
+
+    }
+
+
+    //this is to set the velocity, used for purposes of moving the unit
+    public void setVelocity(int x2, int y2){
+
+        //System.out.println("I am at: " + x + " " + y);
+        //System.out.println("I want to be at: " + x2 + " " + y2);
+
+        destinationX = x2;
+        destinationY = y2;
+        float diffx = 0;
+        float diffy = 0;
+
+        diffx = x2 - this.x;
+        diffy = y2 - this.y;
+                
+        double mag = Math.sqrt(diffx*diffx + diffy*diffy);
+                
+        diffx /= mag;
+        diffy /= mag;
+
+        velX = diffx;
+        velY = diffy;
+
+        moving = true;
+       
+    }
+
+    public void toggleOn(){
+
+        selected = true;
+
+    }
+
+    public void toggleOff(){
+
+        selected = false;
+
+    }
+
+    public void setColor(Color c){
+        col = c;
+    }
+
+    public Vector2 getPosition(){
+
+        Vector2 v2 = new Vector2();
+        v2.setX(this.x);
+        v2.setY(this.y);
+
+        return v2;
+
+    }
+
+    public void draw(GraphicsContext gc){
+
+    //moves the unit
+    if(moving){
+        x+=velX;
+        y+=velY;
+
+        //stops moving if at the destination
+        if(x<destinationX+1 && x>destinationX-1){
+            if(y<destinationY+1 && y>destinationY-1){
+                moving = false;
+            }
+
+        }
+
+    }
+
+
+    //draws based on selected status
+    if(!selected){
+        gc.setFill(col);
+        gc.fillOval(x, y, radius, radius);
+
+    }
+
+    if(selected){
+        gc.setFill(Color.WHITE);
+        gc.fillOval(x, y, radius, radius);
+
+        gc.setFill(col);
+        gc.fillOval(x+2, y+2, radius-4, radius-4);
+
+    }
+
+    }
+
+
+}

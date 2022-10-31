@@ -122,7 +122,7 @@ public class Main extends Application
       //runs whatever each frame. Keeps track of the "deltatime" or the time between frames.
       public void handle(long currentTimeInNanoSeconds) 
       {
-         
+
          if(lastTime != -1 )
          {
             long t = (currentTimeInNanoSeconds-lastTime)/1000l;
@@ -144,8 +144,8 @@ public class Main extends Application
       {
           if (event.getCode() == KeyCode.Z) 
           {
-
-
+            commandState = "z";
+            System.out.println("Command state is z");
           }
           if(event.getCode() == KeyCode.X)
           {
@@ -153,23 +153,75 @@ public class Main extends Application
           }
           if(event.getCode() == KeyCode.C)
           {
-           
-           
+            commandState = "c";
+            System.out.println("Command state is c");
           }
       }
    }
    
    int active = 0;
    
+   //trying to make a method for where the mouse clicks intersecting with player
+   public boolean intersection(int x1, int y1, float x2, float y2, float w, float h){
+
+      boolean ret = true;
+
+      Rectangle2D r1 = new Rectangle2D(x1,y1,1,1);
+      Rectangle2D r2 = new Rectangle2D(x2, y2, w, h);
+
+      if(!r1.intersects(r2)){
+         ret = false;
+      }
+
+      return ret;
+   }
+
+
    //what should happen when the mouse is clicked
    public class MousePressedListener implements EventHandler<MouseEvent>  
    {
       public void handle(MouseEvent me) 
       {
+
+         //referencing the translating bc that messes with math
+         int xt = theGame.xTranslate;
+         int yt = theGame.yTranslate;
+
          int x = (int) me.getX();
          int y = (int) me.getY();
          
-         //maybe do something here on a click depending on what command is active?
+         //creates a new bubble with where it starts and where its going
+         Bubble b = new Bubble(theGame.p1.x, theGame.p1.y, x-xt, y-yt);
+         theGame.bubbles.add(b);
+
+         if(commandState.equals("z")){ //selecting player
+
+            //if it intersects, then select that player, otherwise select
+            if(intersection(x,y,theGame.p1.x+xt, theGame.p1.y+yt, 
+            theGame.p1.radius, theGame.p1.radius)){
+
+               theGame.p1.toggleOn();
+
+            }
+            else{
+               theGame.p1.toggleOff();
+
+            }
+
+
+         }
+
+         if(commandState.equals("c")){ //moving player
+
+            //if the player is selected, move the player to the location where you clicked
+            if(theGame.p1.selected){
+
+               theGame.p1.setVelocity(x-theGame.xTranslate, y-theGame.yTranslate);
+
+            }
+
+         }
+      
 
          
       }   

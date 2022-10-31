@@ -21,6 +21,13 @@ public class Game extends Canvas
 {
    Map theMap = new Map();
 
+   Player p1 = new Player(100,100);
+
+   ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
+
+   int xTranslate = (800-theMap.getXSize())/2;
+   int yTranslate = (600 - theMap.getYSize())/2;
+
    public Game()
    {
       setHeight(600);
@@ -46,7 +53,9 @@ public class Game extends Canvas
          Scanner scan = new Scanner(new File(mapString));
          theMap = new Map(); //clear it all out first!!!!!
          theMap.readMap(scan); //pass scanner to map to read the map
-         
+         xTranslate = (800-theMap.getXSize())/2;
+         yTranslate = (600 - theMap.getYSize())/2;
+      
          
       }
       catch(Exception e)
@@ -72,11 +81,14 @@ public class Game extends Canvas
       gc.translate( (800-theMap.getXSize())/2, (600 - theMap.getYSize())/2);
       theMap.draw(gc);
 
+      //draws the player/unit
+      p1.draw(gc);
       
-      //you probably want some code here to draw the bubbles and units. Just a thought! No pressure though!
-      
-      
-      
+      //draws the bubbles
+      for(int i=0; i<bubbles.size(); i++){
+         bubbles.get(i).draw(gc);
+      }
+
       //un "centers". Why pop matrix no work :(  ?????  Meh
       gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);
    }
