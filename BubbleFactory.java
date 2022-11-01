@@ -2,8 +2,22 @@ import java.util.*;
 import java.text.*;
 import java.io.*;
 
-public abstract class BubbleFactory extends AbstractUnit {
+public class BubbleFactory extends AbstractUnit {
     /*public void setLocation();
     public void setSpeed();
     public void setRadius();*/
+
+    public BubbleFactory(){
+
+    }
+
+    public Bubble createBubble(float x, float y, int destinationX, int destinationY){
+
+        Bubble b = new Bubble(x, y, destinationX, destinationY);
+
+        return b;
+
+    }
+
+
 }
