@@ -39,6 +39,8 @@ public class Main extends Application
    Scene menu;
    Scene game;
    
+   BubbleFactory bf = new BubbleFactory();
+
    String commandState = "";
 
    Game theGame = new Game();
@@ -191,8 +193,7 @@ public class Main extends Application
          int y = (int) me.getY();
          
          //creates a new bubble with where it starts and where its going
-         Bubble b = new Bubble(theGame.p1.x, theGame.p1.y, x-xt, y-yt);
-         theGame.bubbles.add(b);
+         theGame.bubbles.add(bf.createBubble(theGame.p1.x, theGame.p1.y, x-xt, y-yt));
 
          if(commandState.equals("z")){ //selecting player
 

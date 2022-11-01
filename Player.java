@@ -1,8 +1,11 @@
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import java.util.*;
 
 public class Player extends GameObject {
     
+    ArrayList<AbstractUnit> nodes = new ArrayList<AbstractUnit>();
+
     //default color is Red
     public Color col = Color.RED;
 
@@ -15,6 +18,8 @@ public class Player extends GameObject {
     int destinationY = 0;
     float velX = 0;
     float velY = 0;
+
+
 
     //basic constructor
     public Player(int x, int y){
@@ -109,6 +114,20 @@ public class Player extends GameObject {
         gc.fillOval(x+2, y+2, radius-4, radius-4);
 
     }
+
+    }
+
+    public void run(){
+
+        //Dr. Mood "start with run and draw"
+
+        for(int i=0; i<nodes.size(); i++){
+
+            //nodes.get(i).command();
+
+        }
+
+        //are bubbles (the ones being shot) included here?
 
     }
 

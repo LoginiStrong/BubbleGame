@@ -2,7 +2,7 @@ import java.util.*;
 import java.text.*;
 import java.io.*;
 
-public abstract class UnitFactory {
+public class UnitFactory {
 
    //Pseuodocode of what the factory may look like
    /*public AbstractUnit compileUnit(String type)
