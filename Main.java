@@ -27,6 +27,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.scene.canvas.GraphicsContext;
 
 
 public class Main extends Application
@@ -124,7 +125,7 @@ public class Main extends Application
       //runs whatever each frame. Keeps track of the "deltatime" or the time between frames.
       public void handle(long currentTimeInNanoSeconds) 
       {
-
+         
          if(lastTime != -1 )
          {
             long t = (currentTimeInNanoSeconds-lastTime)/1000l;
