@@ -26,6 +26,10 @@ public abstract class GameObject
    protected float radius;
    protected float radiusSquared; //unused in my implementation. would have been nice for efficency, but the decorator destroyed my hopes for an efficient program... Like literally. hopes = gone.
    
+   public GameObject()
+   {
+   
+   }
    
    public GameObject(float x, float y, float radius)
    {
