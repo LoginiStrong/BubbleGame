@@ -4,12 +4,13 @@ import java.io.*;
 
 public abstract class AbstractUnit extends GameObject {
 
-    AbstractUnit next;
-    
+    public AbstractUnit next;
+    public AbstractUnit current;
     
     public AbstractUnit getNext()
     {
       return next;
+      
     }
     
     public void setNext(AbstractUnit next)
