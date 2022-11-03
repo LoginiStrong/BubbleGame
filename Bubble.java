@@ -9,6 +9,10 @@ public class Bubble {
     float velX;
     float velY;
 
+    int lifetime;
+
+    Strategy st;
+
     //constructor that sets the velocity
     public Bubble(float x, float y, int destinationX, int destinationY){
 
@@ -29,6 +33,8 @@ public class Bubble {
         velX = diffx;
         velY = diffy;
 
+        st = new Strategy0();
+
     }
 
     //draws and moves
@@ -38,8 +44,13 @@ public class Bubble {
 
         gc.fillOval(x,y,5,5);
 
-        x+=velX;
-        y+=velY;
+        run();
+
+    }
+
+    public void run(){
+
+        st.execute(this);
 
     }
 
