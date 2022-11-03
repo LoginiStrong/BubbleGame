@@ -13,6 +13,9 @@ public class Bubble {
 
     Strategy st;
 
+    //Bubble next;
+    //Bubbles will be a linked list?!?!?!?!?!?
+
     //constructor that sets the velocity
     public Bubble(float x, float y, int destinationX, int destinationY){
 
