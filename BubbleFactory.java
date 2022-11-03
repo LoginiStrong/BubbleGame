@@ -7,6 +7,12 @@ public class BubbleFactory extends AbstractUnit {
     public void setSpeed();
     public void setRadius();*/
 
+    public Vector2 getPosition(){
+
+        return null;
+
+    }
+
     public BubbleFactory(){
 
     }
