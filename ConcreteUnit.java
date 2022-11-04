@@ -16,41 +16,33 @@ import javafx.geometry.*;
 import javafx.application.Application;
 import javafx.scene.shape.Circle;
 
+public class ConcreteUnit extends AbstractUnit {
 
-public class BubbleDecorator extends DecoratorParent {
+   int radius; 
+   int posX;
+   int posY;
 
-   int bubbleX;
-   int bubbleY;
-   int bubbleRad;
-   
-   public BubbleDecorator(int bubbleX, int bubbleY, int bubbleRad, AbstractUnit next)
+   public ConcreteUnit(int radius, int posX, int posY)
    {
-      this.bubbleX = bubbleX;
-      this.bubbleY = bubbleY;
-      this.bubbleRad = bubbleRad;
-      this.next = next;
-      
+      this.radius = radius;
+      this.posX = posX;
+      this.posY = posY;
+   }
+
+   public void draw(GraphicsContext gc)
+   {
+      gc.setFill(Color.RED);
+      gc.fillOval(posX, posY, radius, radius);
    }
    
    
-   public void run()
-   {
-   }
    
    public Vector2 getPosition()
    {
       return returnVector;
    }
-   
-   public void draw(GraphicsContext gc)
-   {
-      run();
-      next.draw(gc);
-      gc.setFill(Color.CYAN);
-      gc.fillOval(bubbleX, bubbleY, bubbleRad, bubbleRad);
-     
-      
-   }
+
+
 
 
 }

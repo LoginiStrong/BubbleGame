@@ -40,11 +40,7 @@ public abstract class GameObject
    }
     
    //base draw method. I tried to be helpful so it would give you a nice little warning if you use it accidently (AKA without overriding it)
-   public void draw(GraphicsContext gc)
-   {
-      gc.setFill(Color.RED);
-      gc.fillText("GAME OBJECT DRAWN w/o overloading draw",x,y);
-   }
+   public abstract void draw(GraphicsContext gc);
    
    //probably want to uncomment this, but the sample code would not compile unless I commented this out since I'm not giving you that class.
    public void run(/*ArrayList<AbstractUnit> units*/)

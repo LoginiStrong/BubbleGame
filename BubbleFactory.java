@@ -6,6 +6,11 @@ public class BubbleFactory extends AbstractUnit {
     /*public void setLocation();
     public void setSpeed();
     public void setRadius();*/
+    
+    public Vector2 getPosition()
+   {
+      return returnVector;
+   }
 
     public BubbleFactory(){
 

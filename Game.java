@@ -20,7 +20,10 @@ import java.text.*;
 public class Game extends Canvas
 {
    Map theMap = new Map();
-   HealthDecorator hD = new HealthDecorator(80, 180, 50, 50);
+   ConcreteUnit CU = new ConcreteUnit(200, 70, 150);
+   HealthDecorator hD = new HealthDecorator(80, 180, 100, 30, CU);
+   HealthDecorator hD2 = new HealthDecorator(150, 180, 100, 30, hD);
+   BubbleDecorator bD = new BubbleDecorator(155, 185, 15, hD2);
    Player p1 = new Player(100,100);
 
    ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
@@ -83,7 +86,8 @@ public class Game extends Canvas
 
       //draws the player/unit
       p1.draw(gc);
-      hD.draw(gc);
+      //hD.run();
+      bD.draw(gc);
       
       //draws the bubbles
       for(int i=0; i<bubbles.size(); i++){
