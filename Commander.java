@@ -11,7 +11,7 @@ public class Commander {
     }
 
     public void execute(Player p1, int mouseX, int mouseY){
-        bc.execute(p1, mouseX, mouseY);
+        bc.execute(p1,mouseX,mouseY);
     }
 
 

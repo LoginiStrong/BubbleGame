@@ -3,8 +3,6 @@ import javafx.geometry.*;
 public class commandZ implements command{
 
     Player p;
-    int mouseX;
-    int mouseY;
 
     public boolean intersection(int x1, int y1, float x2, float y2, float w, float h){
 
@@ -20,28 +18,20 @@ public class commandZ implements command{
         return ret;
      }
 
-    public commandZ(Player p, int mouseX, int mouseY){
-
-        this.p = p;
-        this.mouseX = mouseX;
-        this.mouseY = mouseY;
+    public commandZ(){
 
     }
 
     public void execute(Player p1, int mouseX, int mouseY){
         System.out.println("this should print the z command");
 
-       /* if(intersection(x,y,theGame.p1.x+xt, theGame.p1.y+yt, 
-            theGame.p1.radius, theGame.p1.radius)){
+        if(intersection(mouseX,mouseY,p1.x, p1.y, p1.radius, p1.radius)){
+            p1.toggleOn();
+        }
+        else{
+            p1.toggleOff();
+        }
 
-               theGame.p1.toggleOn();
-
-            }
-            else{
-               theGame.p1.toggleOff();
-
-            }
-        */
     }
 
 }

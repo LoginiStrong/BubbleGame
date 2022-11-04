@@ -47,6 +47,8 @@ public class Main extends Application
    Game theGame = new Game();
 
    static double deltaTime; 
+
+   Commander commander = new Commander();
    
    //get the amount of time passed between the last frame and this frame.
    public static double getDeltaTime()
@@ -147,7 +149,9 @@ public class Main extends Application
       {
           if (event.getCode() == KeyCode.Z) 
           {
-            commandState = "z";
+
+            commander.setCommand(new commandZ());
+            
             System.out.println("Command state is z");
           }
           if(event.getCode() == KeyCode.X)
@@ -156,7 +160,9 @@ public class Main extends Application
           }
           if(event.getCode() == KeyCode.C)
           {
-            commandState = "c";
+
+            commander.setCommand(new commandC());
+
             System.out.println("Command state is c");
           }
       }
@@ -196,35 +202,8 @@ public class Main extends Application
          //creates a new bubble with where it starts and where its going
          theGame.bubbles.add(bf.createBubble(theGame.p1.x, theGame.p1.y, x-xt, y-yt));
 
-         if(commandState.equals("z")){ //selecting player
-
-            //if it intersects, then select that player, otherwise select
-            if(intersection(x,y,theGame.p1.x+xt, theGame.p1.y+yt, 
-            theGame.p1.radius, theGame.p1.radius)){
-
-               theGame.p1.toggleOn();
-
-            }
-            else{
-               theGame.p1.toggleOff();
-
-            }
-
-
-         }
-
-         if(commandState.equals("c")){ //moving player
-
-            //if the player is selected, move the player to the location where you clicked
-            if(theGame.p1.selected){
-
-               theGame.p1.setVelocity(x-theGame.xTranslate, y-theGame.yTranslate);
-
-            }
-
-         }
-      
-
+         
+         commander.execute(theGame.p1, x-xt, y-theGame.yTranslate);
          
       }   
    }

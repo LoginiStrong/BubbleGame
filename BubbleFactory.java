@@ -12,6 +12,12 @@ public class BubbleFactory extends AbstractUnit {
       return returnVector;
    }
 
+    public Vector2 getPosition(){
+
+        return null;
+
+    }
+
     public BubbleFactory(){
 
     }
