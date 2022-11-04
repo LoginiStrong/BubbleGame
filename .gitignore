@@ -1,2 +1,7 @@
 
 *.class
+Main.class
+Main$MousePressedListener.class
+Main$KeyListenerDown.class
+Main$ButtonListener.class
+Main$AnimationHandler.class
