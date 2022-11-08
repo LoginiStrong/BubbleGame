@@ -24,6 +24,23 @@ public class Bubble {
         this.velY = velY;
     }
 
+    public void setStrategy(int num){
+
+        if(num == 0){
+            st = new Strategy0();
+            lifetime = 5;
+        }
+        if(num == 1){
+            st = new Strategy1();
+            lifetime = 2;
+        }
+        if(num == 2){
+            st = new Strategy2();
+            lifetime = 1;
+        }
+
+    }
+
     //constructor that sets the velocity
     public Bubble(float x, float y, int destinationX, int destinationY){
 
