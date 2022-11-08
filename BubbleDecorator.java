@@ -22,12 +22,22 @@ public class BubbleDecorator extends DecoratorParent {
    int bubbleX;
    int bubbleY;
    int bubbleRad;
+   int type;
+   float damage;
+   int speed;
+   double refire;
+   int range; 
+   int bubbleSize;
    
-   public BubbleDecorator(int bubbleX, int bubbleY, int bubbleRad, AbstractUnit next)
+   
+   
+   public BubbleDecorator(int bubbleX, int bubbleY, int type, int bubbleRad, double refire, AbstractUnit next)
    {
       this.bubbleX = bubbleX;
       this.bubbleY = bubbleY;
+      this.type = type;
       this.bubbleRad = bubbleRad;
+      this.refire = refire;
       this.next = next;
       
    }
@@ -51,6 +61,19 @@ public class BubbleDecorator extends DecoratorParent {
      
       
    }
+   
+   
+   public int getType()
+   {
+      return type;
+   }
+   
+   public double getFireRate()
+   {
+      return refire;
+   }
+   
+   
 
 
 }

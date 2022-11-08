@@ -23,7 +23,7 @@ public class Game extends Canvas
    ConcreteUnit CU = new ConcreteUnit(200, 70, 150);
    HealthDecorator hD = new HealthDecorator(80, 180, 100, 30, CU);
    HealthDecorator hD2 = new HealthDecorator(150, 180, 100, 30, hD);
-   BubbleDecorator bD = new BubbleDecorator(155, 185, 15, hD2);
+   BubbleDecorator bD = new BubbleDecorator(155, 185, 1, 15, 0.5, hD2);
    Player p1 = new Player(100,100);
 
    ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
