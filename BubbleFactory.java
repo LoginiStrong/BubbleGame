@@ -9,11 +9,11 @@ public class BubbleFactory extends UnitFactory {
    int num3 = 0;
    
    //Constructor
-   public BubbleFactory(int numOne, int numTwo, int numThree)
+   public BubbleFactory(/*int numOne, int numTwo, int numThree*/)
    {
-      num1 = numOne;
+      /*num1 = numOne;
       num2 = numTwo;
-      num3 = numThree;
+      num3 = numThree;*/
    }
    
    //Abstract method from UnitFactory
