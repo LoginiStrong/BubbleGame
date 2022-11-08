@@ -26,7 +26,7 @@ public class Game extends Canvas
    BubbleDecorator bD = new BubbleDecorator(155, 185, 15, hD2);
    Player p1 = new Player(100,100);
 
-   ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
+   //ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 
    int xTranslate = (800-theMap.getXSize())/2;
    int yTranslate = (600 - theMap.getYSize())/2;
@@ -115,10 +115,6 @@ public class Game extends Canvas
       //hD.run();
       bD.draw(gc);
       
-      //draws the bubbles
-      for(int i=0; i<bubbles.size(); i++){
-         bubbles.get(i).draw(gc);
-      }
 
       //un "centers". Why pop matrix no work :(  ?????  Meh
       gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);

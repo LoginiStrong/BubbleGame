@@ -8,6 +8,16 @@ public class Strategy1 extends Strategy{
         //original speed + a random (-.05,.05) in both directions; 
         //the slow bubbles have a lifetime of 5.
 
+        b.lifetime -=0.1;
+
+        if(b.lifetime == 1){
+
+        }
+
+        if(b.lifetime == 0){
+            b.getPrevious().setNext(b.getNext());
+        }
+
     }
 
 }

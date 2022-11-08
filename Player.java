@@ -19,7 +19,7 @@ public class Player extends GameObject {
     float velX = 0;
     float velY = 0;
 
-
+    Bubble head;
 
     //basic constructor
     public Player(int x, int y){
@@ -27,7 +27,6 @@ public class Player extends GameObject {
         super(x,y,50);
 
     }
-
 
     //this is to set the velocity, used for purposes of moving the unit
     public void setVelocity(int x2, int y2){
@@ -83,37 +82,43 @@ public class Player extends GameObject {
 
     public void draw(GraphicsContext gc){
 
-    //moves the unit
-    if(moving){
-        x+=velX;
-        y+=velY;
+        //moves the unit
+        if(moving){
+            x+=velX;
+            y+=velY;
 
-        //stops moving if at the destination
-        if(x<destinationX+1 && x>destinationX-1){
-            if(y<destinationY+1 && y>destinationY-1){
-                moving = false;
+            //stops moving if at the destination
+            if(x<destinationX+1 && x>destinationX-1){
+                if(y<destinationY+1 && y>destinationY-1){
+                    moving = false;
+                }
+
             }
 
         }
 
-    }
+        //draws based on selected status
+        if(!selected){
+            gc.setFill(col);
+            gc.fillOval(x, y, radius, radius);
 
+        }
 
-    //draws based on selected status
-    if(!selected){
-        gc.setFill(col);
-        gc.fillOval(x, y, radius, radius);
+        if(selected){
+            gc.setFill(Color.WHITE);
+            gc.fillOval(x, y, radius, radius);
 
-    }
+            gc.setFill(col);
+            gc.fillOval(x+2, y+2, radius-4, radius-4);
 
-    if(selected){
-        gc.setFill(Color.WHITE);
-        gc.fillOval(x, y, radius, radius);
+        }
 
-        gc.setFill(col);
-        gc.fillOval(x+2, y+2, radius-4, radius-4);
+        Bubble temp = head;
 
-    }
+        while(temp!=null){
+            temp.draw(gc);
+            temp = temp.getNext();
+        }
 
     }
 
