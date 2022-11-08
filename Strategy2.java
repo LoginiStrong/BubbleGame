@@ -27,8 +27,7 @@ public class Strategy2 extends Strategy{
             Bubble b7 = new Bubble(tempX+7, tempY+7, tempVelX, tempVelY, true);
             Bubble b8 = new Bubble(tempX-7, tempY+7, tempVelX, tempVelY, true);
 
-            b.getPrevious().setNext(b1);
-            b1.setPrev(b.getPrevious());
+            b.setNext(b1);
 
             b1.setNext(b2);
             b2.setPrev(b1);

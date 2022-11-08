@@ -142,6 +142,14 @@ public class Player extends GameObject {
 
     }
 
+    public void removeBubbles(){
+
+       //make this method check all bubbles that have
+       //lifetime of 0 and remove them
+
+    }
+
+
     public void run(){
 
         //Dr. Mood "start with run and draw"

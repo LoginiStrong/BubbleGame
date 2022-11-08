@@ -14,9 +14,6 @@ public class Strategy1 extends Strategy{
 
         }
 
-        if(b.lifetime == 0){
-            b.getPrevious().setNext(b.getNext());
-        }
 
     }
 

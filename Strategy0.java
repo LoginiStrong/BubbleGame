@@ -10,9 +10,7 @@ public class Strategy0 extends Strategy{
             b.x+=b.velX;
             b.y+=b.velY;
         }
-        else{
-            b.getPrevious().setNext(b.getNext());
-        }
+        
 
     }
 
