@@ -26,7 +26,7 @@ public class Game extends Canvas
    BubbleDecorator bD = new BubbleDecorator(155, 185, 1, 15, 0.5, hD2);
    Player p1 = new Player(100,100);
 
-   ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
+   //ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 
    int xTranslate = (800-theMap.getXSize())/2;
    int yTranslate = (600 - theMap.getYSize())/2;
@@ -74,6 +74,32 @@ public class Game extends Canvas
    {
    }
    
+   //New draw method given to us
+   /*public void draw()
+   {
+      GraphicsContext gc = getGraphicsContext2D();
+      gc.setFill(Color.BLACK);
+      gc.fillRect(0,0,800,600);
+      
+      //moves to center 
+      gc.translate( (800-theMap.getXSize())/2, (600 - theMap.getYSize())/2);
+      theMap.draw(gc);
+      for(int i=0;i<units.size();i++)
+      {
+         units.get(i).draw(gc);
+      }
+      
+      BubbleList.BubbleListIterator BLI = BubbleList.getInstance().getIterator();
+      while(BLI.hasNext())
+      {
+         Bubble b = BLI.next();
+         b.draw(gc);
+      }
+      
+      //un "centers". Why pop matrix no work :(  ?????  Meh
+      gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);
+   }*/
+   
    public void draw()
    {
       GraphicsContext gc = getGraphicsContext2D();
@@ -89,10 +115,6 @@ public class Game extends Canvas
       //hD.run();
       bD.draw(gc);
       
-      //draws the bubbles
-      for(int i=0; i<bubbles.size(); i++){
-         bubbles.get(i).draw(gc);
-      }
 
       //un "centers". Why pop matrix no work :(  ?????  Meh
       gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);

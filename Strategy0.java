@@ -2,10 +2,17 @@ public class Strategy0 extends Strategy{
     
     public void execute(Bubble b){
 
-        //implement for 5 lifetimes
+        b.lifetime -=0.1;
 
-        b.x+=b.velX;
-        b.y+=b.velY;
+        System.out.println("AHHHHHHH ITS HAPPENING");
+
+        if(b.lifetime>0){
+            b.x+=b.velX;
+            b.y+=b.velY;
+        }
+        else{
+            b.getPrevious().setNext(b.getNext());
+        }
 
     }
 

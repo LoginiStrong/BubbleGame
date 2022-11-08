@@ -41,6 +41,7 @@ public class Main extends Application
    Scene game;
    
    BubbleFactory bf = new BubbleFactory();
+   //UnitFactory bubbles = new BubbleFactory();
 
    String commandState = "";
 
@@ -198,12 +199,8 @@ public class Main extends Application
 
          int x = (int) me.getX();
          int y = (int) me.getY();
-         
-         //creates a new bubble with where it starts and where its going
-         theGame.bubbles.add(bf.createBubble(theGame.p1.x, theGame.p1.y, x-xt, y-yt));
 
-         
-         commander.execute(theGame.p1, x-xt, y-theGame.yTranslate);
+         commander.execute(theGame.p1, x-xt, y-yt);
          
       }   
    }

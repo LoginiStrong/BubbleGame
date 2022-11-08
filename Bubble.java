@@ -9,12 +9,20 @@ public class Bubble {
     float velX;
     float velY;
 
-    int lifetime;
+    double lifetime;
 
     Strategy st;
 
-    //Bubble next;
+    Bubble next = null;
+    Bubble previous = null;
     //Bubbles will be a linked list?!?!?!?!?!?
+
+    public Bubble(float x, float y, float velX, float velY){
+        this.x = x;
+        this.y = y;
+        this.velX = velX;
+        this.velY = velY;
+    }
 
     //constructor that sets the velocity
     public Bubble(float x, float y, int destinationX, int destinationY){
@@ -36,8 +44,30 @@ public class Bubble {
         velX = diffx;
         velY = diffy;
 
+        lifetime = 5;
+
         st = new Strategy0();
 
+    }
+
+    public void setLifetime(double x){
+        lifetime = x;
+    }
+
+    public void setNext(Bubble b){
+        next = b;
+    }
+
+    public void setPrev(Bubble b){
+        previous = b;
+    }
+
+    public Bubble getNext(){
+        return next;
+    }
+
+    public Bubble getPrevious(){
+        return previous;
     }
 
     //draws and moves

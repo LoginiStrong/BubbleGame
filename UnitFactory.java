@@ -1,34 +1,22 @@
 import java.util.*;
 import java.text.*;
 import java.io.*;
+import javafx.event.*;
+import javafx.stage.*;
+import javafx.scene.canvas.*;
+import javafx.scene.paint.*;
+import javafx.scene.*;
+import javafx.scene.text.*;
+import javafx.scene.input.*;
+import javafx.scene.layout.*;
+import javafx.animation.*;
+import javafx.scene.control.*;
+import javafx.scene.image.*;
+import javafx.geometry.*;
+import javafx.application.Application;
+import javafx.scene.shape.Circle;
 
-public class UnitFactory {
-
-   //Pseuodocode of what the factory may look like
-   /*public AbstractUnit compileUnit(String type)
-   {
-      AbstractUnit unit = //method
-      
-      //Different methods
-      
-      return unit;
-   }*/
-   
-   //protected abstract AbstractUnit createUnit(String type);
-   
-   //I believe the Bubble and Health classes need to extend this class
-   //The factory looks at the types, the bubbles and health correspond to the type
-      //In other words, bubbles and health are part of a type of unit?
-   
-   
-   /*public HealthNodeFactory nf;
-    public BubbleFactory bf;*/
-
-    /*public Unit makeUnit{
-
-        calls on health node
-        calls on bubble factory
-        makes and returns a unit
-
-    }*/
+public abstract class UnitFactory{
+   //Abstract method
+   public abstract AbstractUnit create(AbstractUnit next);
 }

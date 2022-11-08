@@ -17,9 +17,11 @@ import javafx.application.Application;
 import javafx.scene.shape.Circle;
 
 public abstract class AbstractUnit extends GameObject {
-
-
+    
+    
     public abstract void draw(GraphicsContext gc);
+    
+    
     /*public AbstractUnit next;
     public AbstractUnit current;
     
