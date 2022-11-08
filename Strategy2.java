@@ -17,15 +17,15 @@ public class Strategy2 extends Strategy{
             float tempX = b.x;
             float tempY = b.y;
 
-            Bubble b1 = new Bubble(tempX, tempY-10, tempVelX, tempVelY);
-            Bubble b2 = new Bubble(tempX+10, tempY, tempVelX, tempVelY);
-            Bubble b3 = new Bubble(tempX, tempY+10, tempVelX, tempVelY);
-            Bubble b4 = new Bubble(tempX-10, tempY, tempVelX, tempVelY);
+            Bubble b1 = new Bubble(tempX, tempY-10, tempVelX, tempVelY, true);
+            Bubble b2 = new Bubble(tempX+10, tempY, tempVelX, tempVelY, true);
+            Bubble b3 = new Bubble(tempX, tempY+10, tempVelX, tempVelY, true);
+            Bubble b4 = new Bubble(tempX-10, tempY, tempVelX, tempVelY, true);
 
-            Bubble b5 = new Bubble(tempX-7, tempY-7, tempVelX, tempVelY);
-            Bubble b6 = new Bubble(tempX+7, tempY-7, tempVelX, tempVelY);
-            Bubble b7 = new Bubble(tempX+7, tempY+7, tempVelX, tempVelY);
-            Bubble b8 = new Bubble(tempX-7, tempY+7, tempVelX, tempVelY);
+            Bubble b5 = new Bubble(tempX-7, tempY-7, tempVelX, tempVelY, true);
+            Bubble b6 = new Bubble(tempX+7, tempY-7, tempVelX, tempVelY, true);
+            Bubble b7 = new Bubble(tempX+7, tempY+7, tempVelX, tempVelY, true);
+            Bubble b8 = new Bubble(tempX-7, tempY+7, tempVelX, tempVelY, true);
 
             b.getPrevious().setNext(b1);
             b1.setPrev(b.getPrevious());

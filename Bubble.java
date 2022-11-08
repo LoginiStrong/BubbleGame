@@ -17,7 +17,7 @@ public class Bubble {
     Bubble previous = null;
     //Bubbles will be a linked list?!?!?!?!?!?
 
-    public Bubble(float x, float y, float velX, float velY){
+    public Bubble(float x, float y, float velX, float velY, boolean placeholder){
         this.x = x;
         this.y = y;
         this.velX = velX;

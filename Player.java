@@ -19,12 +19,32 @@ public class Player extends GameObject {
     float velX = 0;
     float velY = 0;
 
-    Bubble head;
+    Bubble head = null;
 
     //basic constructor
     public Player(int x, int y){
 
         super(x,y,50);
+
+    }
+
+    //adds a bubble to the end
+    public void addBubble(Bubble b){
+
+        if(head == null){
+            head = b;
+        }
+        else{
+            Bubble temp = head;
+
+            while(temp.getNext()!= null){
+                temp = temp.getNext();
+            }
+
+            temp.setNext(b);
+            b.setPrev(temp);
+
+        }
 
     }
 
