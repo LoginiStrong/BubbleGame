@@ -38,7 +38,7 @@ public class HealthDecorator extends DecoratorParent {
    
    public void run()
    {
-      if (HP == 0)
+      if (HP <= 0)
       {
          dead = true;
       }
@@ -61,10 +61,22 @@ public class HealthDecorator extends DecoratorParent {
       {
          gc.setFill(Color.BLACK);
       }
-      gc.fillOval(healthX, healthY, healthRad, healthRad);
-     
-      
+      gc.fillOval(healthX, healthY, healthRad, healthRad); 
    }
 
+   public int getHP()
+   {
+      return HP;
+   }
+
+   public void takeDamage(int damage)
+   {
+      HP -= damage;
+   }
+   
+   public boolean getDead()
+   {
+      return dead;
+   }
 
 }
