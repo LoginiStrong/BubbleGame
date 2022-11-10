@@ -19,7 +19,6 @@ public class Player extends GameObject {
     float velX = 0;
     float velY = 0;
 
-    //this is the player's bubble head node
     Bubble head = null;
 
     //basic constructor
