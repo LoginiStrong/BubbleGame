@@ -18,25 +18,17 @@ import javafx.scene.shape.Circle;
 
 public class HealthNodeFactory extends UnitFactory {
    
-   int num1 = 0;
-   int num2 = 0;
-   int num3 = 0;
-   int num4 = 0;
+   AbstractUnit hDecor;
    
    //Constructor
-   public HealthNodeFactory(int numOne, int numTwo, int numThree, int numFour)
+   public HealthNodeFactory(int healthX, int healthY, int HP, int healthRad, AbstractUnit next)
    {
-      num1 = numOne;
-      num2 = numTwo;
-      num3 = numThree;
-      num4 = numFour;
+      HealthDecorator hD = new HealthDecorator(healthX, healthY, HP, healthRad, next);
+      hDecor = hD;
    }
    
-   //Abstract method from UnitFactroy to create the health part of the unit
-   public AbstractUnit create(AbstractUnit next)
+   public AbstractUnit getHDecor()
    {
-      HealthDecorator hD = new HealthDecorator(num1,num2,num3,num4,next);
-      
-      return hD;   //Since HealthDecorator extends from AbstractUnit, we can return hD
+      return hDecor;
    }
 }

@@ -28,7 +28,11 @@ public class UnitFactory{
    {
       ConcreteUnit CU = new ConcreteUnit(radius, posX, posY);
       last = CU;
-      BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, CU);
+      HealthNodeFactory HF = new HealthNodeFactory(150, 180, 100, 30, last);
+      last = HF.getHDecor();
+      BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, last);
+      
+      
       last = BF.getBDecor();
       
    }
