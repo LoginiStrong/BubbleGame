@@ -8,9 +8,9 @@ public class Strategy2 extends Strategy{
         //with the same stats (aka, damage) as the original. 
         //If it hits something, it does not spread out.
 
-        b.lifetime -=0.1;
+        b.lifetime -=0.025;
 
-        if(b.lifetime == 0){
+        if(b.lifetime < 0.01 && b.lifetime>-.02){
             
             float tempVelX = b.velX;
             float tempVelY = b.velY;
@@ -26,8 +26,6 @@ public class Strategy2 extends Strategy{
             Bubble b6 = new Bubble(tempX+7, tempY-7, tempVelX, tempVelY, true);
             Bubble b7 = new Bubble(tempX+7, tempY+7, tempVelX, tempVelY, true);
             Bubble b8 = new Bubble(tempX-7, tempY+7, tempVelX, tempVelY, true);
-
-            b.setNext(b1);
 
             b1.setNext(b2);
             b2.setPrev(b1);
@@ -50,11 +48,22 @@ public class Strategy2 extends Strategy{
             b7.setNext(b8);
             b8.setPrev(b7);
 
-            b8.setNext(b.getNext());
+            if(b.next==null){
+                b.next = b2;
+            }
+            else{
+                b.next.setPrev(b8);
+                b8.setNext(b.next);
+                b.next = b2;
+            }
 
 
         }
 
+        if(b.lifetime>0){
+            b.x+=b.velX;
+            b.y+=b.velY;
+        }
 
     }
 

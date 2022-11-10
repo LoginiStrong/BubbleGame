@@ -65,6 +65,9 @@ public class Main extends Application
    }
    public void start(Stage stage)
    {
+
+      commander.setCommand(new commandZ());
+      
       //creating the menu & scences. Don't worry about this code. You shouldn't have to change anything in this method... I mean unless you want too
       Label title = new Label("Bubble Poppers 3000");
       title.setFont(Font.font ("Verdana", 34));

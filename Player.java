@@ -33,17 +33,20 @@ public class Player extends GameObject {
 
         if(head == null){
             head = b;
+            
         }
         else{
+            
             Bubble temp = head;
 
             while(temp.getNext()!= null){
                 temp = temp.getNext();
+              
             }
-
+            
             temp.setNext(b);
             b.setPrev(temp);
-
+          
         }
 
     }
@@ -133,20 +136,50 @@ public class Player extends GameObject {
 
         }
 
+        removeBubbles();
+
         Bubble temp = head;
 
         while(temp!=null){
-            temp.draw(gc);
+            
+            Bubble b2 = temp;
+            b2.draw(gc);
             temp = temp.getNext();
+            
         }
-
+        
     }
 
     public void removeBubbles(){
 
-       //make this method check all bubbles that have
-       //lifetime of 0 and remove them
+        Bubble temp = head;
 
+        if(temp == null){
+            return;
+        }
+        else if(temp.getNext()==null){
+            if(temp.lifetime<=0){
+                head = null;
+            }
+        }
+        else{
+            while(temp!=null){
+                    if(temp.lifetime <=0){
+                        if(temp.getNext()!=null & temp!=head){
+                            temp.getPrevious().setNext(temp.getNext());
+                            temp.getNext().setPrev(temp.getPrevious());
+                        }
+                        else if(temp!=head){
+                            temp.getPrevious().setNext(null);
+                        }
+                        else{
+                            head = temp.getNext();
+                        }
+                    }
+                temp = temp.getNext();
+
+            }
+        }
     }
 
 

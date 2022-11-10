@@ -17,11 +17,31 @@ public class Bubble {
     Bubble previous = null;
     //Bubbles will be a linked list?!?!?!?!?!?
 
+    public void insertBubble(Bubble b){
+
+        if(next==null){
+            next = b;
+            b.setPrev(this);
+        }
+        else{
+            next.setPrev(b);
+            b.setNext(this.next);
+            b.setPrev(this);
+            next = b;
+        }
+
+    }
+
+
     public Bubble(float x, float y, float velX, float velY, boolean placeholder){
         this.x = x;
         this.y = y;
         this.velX = velX;
         this.velY = velY;
+
+        st = new Strategy0();
+
+        lifetime = 5;
     }
 
     public void setStrategy(int num){
@@ -63,7 +83,7 @@ public class Bubble {
 
         lifetime = 5;
 
-        st = new Strategy0();
+        st = new Strategy2();
 
     }
 
