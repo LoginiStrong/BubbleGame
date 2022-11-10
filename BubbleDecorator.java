@@ -19,6 +19,7 @@ import javafx.scene.shape.Circle;
 
 public class BubbleDecorator extends DecoratorParent {
 
+   //Variables for the bubble attributes
    int bubbleX;
    int bubbleY;
    int bubbleRad;
@@ -29,8 +30,7 @@ public class BubbleDecorator extends DecoratorParent {
    int range; 
    double bubbleSize;
    
-   
-   
+   //Constructor to get the bubble attributes
    public BubbleDecorator(int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, double bubbleSize, AbstractUnit next)
    {
       this.bubbleX = bubbleX;
@@ -43,61 +43,64 @@ public class BubbleDecorator extends DecoratorParent {
       this.range = range;
       this.next = next;
       this.bubbleSize = bubbleSize;
-      
    }
    
-   
+   //Method to run the bubble
    public void run()
    {
    }
    
+   //Gets the position of where the bubble is going to go
    public Vector2 getPosition()
    {
       return returnVector;
    }
    
+   //Draws the bubble to the the board
    public void draw(GraphicsContext gc)
    {
+      //Runs the bubble
       run();
-      System.out.println("Outside bubble draw");
+      
+      //Draws the bubble
       next.draw(gc);
-      System.out.println("In bubble draw");
       gc.setFill(Color.CYAN);
       gc.fillOval(bubbleX, bubbleY, bubbleRad, bubbleRad);
-     
-      
    }
    
-   
+   //Returns the type
    public int getType()
    {
       return type;
    }
    
+   //Returns bubble size
    public double getBubbleSize()
    {
       return bubbleSize;
    }
    
+   //Returns bubble speed
    public int getSpeed()
    {
       return speed;
    }
    
+   //Returns bubble range
    public int getRange()
    {
       return range;
    }
    
+   //Returns bubble refire
    public double getFireRate()
    {
       return refire;
    }
    
+   //Returns damage
    public double getDamage()
    {
       return damage; 
-   }
-  
-  
+   } 
 }

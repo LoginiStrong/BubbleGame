@@ -18,31 +18,29 @@ import javafx.scene.shape.Circle;
 
 public class ConcreteUnit extends AbstractUnit {
 
+   //Variables for the unit radius and positions at x and y
    int radius; 
    int posX;
    int posY;
-
+   
+   //Constructor to take in radius and x/y position
    public ConcreteUnit(int radius, int posX, int posY)
    {
       this.radius = radius;
       this.posX = posX;
       this.posY = posY;
    }
-
+   
+   //Draws the unit
    public void draw(GraphicsContext gc)
    {
       gc.setFill(Color.RED);
       gc.fillOval(posX, posY, radius, radius);
    }
    
-   
-   
+   //Gets position of the where the unit is going to
    public Vector2 getPosition()
    {
       return returnVector;
    }
-
-
-
-
 }
