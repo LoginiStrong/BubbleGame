@@ -43,7 +43,7 @@ public class Main extends Application
    //BubbleFactory bf = new BubbleFactory();
    //UnitFactory bubbles = new BubbleFactory();
 
-   String commandState = "";
+   String commandState = "z";
 
    Game theGame = new Game();
 
@@ -131,7 +131,8 @@ public class Main extends Application
       //runs whatever each frame. Keeps track of the "deltatime" or the time between frames.
       public void handle(long currentTimeInNanoSeconds) 
       {
-         
+         theGame.setCom(commandState);
+
          if(lastTime != -1 )
          {
             long t = (currentTimeInNanoSeconds-lastTime)/1000l;
@@ -155,8 +156,8 @@ public class Main extends Application
           {
 
             commander.setCommand(new commandZ());
+            commandState = "z";
             
-            System.out.println("Command state is z");
           }
           if(event.getCode() == KeyCode.X)
           {
@@ -166,8 +167,8 @@ public class Main extends Application
           {
 
             commander.setCommand(new commandC());
-
-            System.out.println("Command state is c");
+            commandState = "c";
+            
           }
       }
    }

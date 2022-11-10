@@ -9,30 +9,18 @@ public class Bubble {
     float velX;
     float velY;
 
+    //this variable kees track of how long the bubble is in play
     double lifetime;
 
+    //this will be the strategy that is called
     Strategy st;
 
+    //bubbles that this bubble links to
     Bubble next = null;
     Bubble previous = null;
-    //Bubbles will be a linked list?!?!?!?!?!?
+    
 
-    public void insertBubble(Bubble b){
-
-        if(next==null){
-            next = b;
-            b.setPrev(this);
-        }
-        else{
-            next.setPrev(b);
-            b.setNext(this.next);
-            b.setPrev(this);
-            next = b;
-        }
-
-    }
-
-
+    //this constructor is used to set the velocity of the bubble
     public Bubble(float x, float y, float velX, float velY, boolean placeholder){
         this.x = x;
         this.y = y;
@@ -44,6 +32,7 @@ public class Bubble {
         lifetime = 5;
     }
 
+    //this bubble sets the strategy of the bubble
     public void setStrategy(int num){
 
         if(num == 0){
@@ -61,7 +50,7 @@ public class Bubble {
 
     }
 
-    //constructor that sets the velocity
+    //constructor
     public Bubble(float x, float y, int destinationX, int destinationY){
 
         this.x = x;
@@ -83,7 +72,7 @@ public class Bubble {
 
         lifetime = 5;
 
-        st = new Strategy2();
+        st = new Strategy1();
 
     }
 
@@ -118,6 +107,7 @@ public class Bubble {
 
     }
 
+    //this method calls the strategy
     public void run(){
 
         st.execute(this);

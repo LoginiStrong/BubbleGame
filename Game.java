@@ -29,6 +29,8 @@ public class Game extends Canvas
    
    Player p1 = new Player(100,100);
 
+   String com = "";
+
    //ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
 
    int xTranslate = (800-theMap.getXSize())/2;
@@ -103,6 +105,10 @@ public class Game extends Canvas
       gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);
    }*/
    
+   public void setCom(String s){
+      com = s;
+   }
+
    public void draw()
    {
       GraphicsContext gc = getGraphicsContext2D();
@@ -123,5 +129,13 @@ public class Game extends Canvas
 
       //un "centers". Why pop matrix no work :(  ?????  Meh
       gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);
+
+      gc.setFill(Color.RED);
+      
+      String str = "You are on command " + com;
+      gc.fillText(str, 40, 40);
+      gc.fillText("Z: Selecting     C: Moving", 40,60);
+
+
    }
 }
