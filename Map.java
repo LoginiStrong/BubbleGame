@@ -42,6 +42,8 @@ public class Map
       {
          obs.add(theMap.get(fileScanner.next()).clone(fileScanner.nextInt(),fileScanner.nextInt()));
       } 
+      
+      System.out.println(fileScanner.next());
    }
 
    boolean first=true;

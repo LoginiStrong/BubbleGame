@@ -16,7 +16,33 @@ import javafx.geometry.*;
 import javafx.application.Application;
 import javafx.scene.shape.Circle;
 
-public abstract class UnitFactory{
+public class UnitFactory{
    //Abstract method
-   public abstract AbstractUnit create(AbstractUnit next);
+   private AbstractUnit last;
+   
+   public UnitFactory(){
+   
+   }
+   
+   public UnitFactory(int radius, int posX, int posY)
+   {
+      ConcreteUnit CU = new ConcreteUnit(radius, posX, posY);
+      last = CU;
+      BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, CU);
+      last = BF.getBDecor();
+      
+   }
+   
+   public AbstractUnit getLast()
+   {
+      return last;
+   }
+   
+   public void setLast(AbstractUnit decor)
+   {
+      last = decor;
+      System.out.println("Called");
+   }
+   
+   //public abstract AbstractUnit create(AbstractUnit next);
 }

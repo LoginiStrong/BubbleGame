@@ -20,10 +20,13 @@ import java.text.*;
 public class Game extends Canvas
 {
    Map theMap = new Map();
-   ConcreteUnit CU = new ConcreteUnit(200, 70, 150);
-   HealthDecorator hD = new HealthDecorator(80, 180, 100, 30, CU);
-   HealthDecorator hD2 = new HealthDecorator(150, 180, 100, 30, hD);
-   BubbleDecorator bD = new BubbleDecorator(155, 185, 1, 15, 0.5, hD2);
+   //ConcreteUnit CU = new ConcreteUnit(200, 70, 150);
+   //HealthDecorator hD = new HealthDecorator(80, 180, 100, 30, CU);
+   //HealthDecorator hD2 = new HealthDecorator(150, 180, 100, 30, hD);
+   //BubbleDecorator bD = new BubbleDecorator(155, 185, 1, 15, 0.5, hD2);
+   UnitFactory UF = new UnitFactory(200, 70, 150);
+  // BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, UF.getLast());
+   
    Player p1 = new Player(100,100);
 
    //ArrayList<Bubble> bubbles = new ArrayList<Bubble>();
@@ -113,7 +116,9 @@ public class Game extends Canvas
       //draws the player/unit
       p1.draw(gc);
       //hD.run();
-      bD.draw(gc);
+      //bD.draw(gc);
+      UF.getLast().draw(gc);
+      //System.out.println((UF.getLast());
       
 
       //un "centers". Why pop matrix no work :(  ?????  Meh

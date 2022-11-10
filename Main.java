@@ -40,7 +40,7 @@ public class Main extends Application
    Scene menu;
    Scene game;
    
-   BubbleFactory bf = new BubbleFactory();
+   //BubbleFactory bf = new BubbleFactory();
    //UnitFactory bubbles = new BubbleFactory();
 
    String commandState = "";

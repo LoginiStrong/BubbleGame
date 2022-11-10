@@ -27,11 +27,11 @@ public class BubbleDecorator extends DecoratorParent {
    int speed;
    double refire;
    int range; 
-   int bubbleSize;
+   double bubbleSize;
    
    
    
-   public BubbleDecorator(int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, int bubbleSize, AbstractUnit next)
+   public BubbleDecorator(int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, double bubbleSize, AbstractUnit next)
    {
       this.bubbleX = bubbleX;
       this.bubbleY = bubbleY;
@@ -59,7 +59,9 @@ public class BubbleDecorator extends DecoratorParent {
    public void draw(GraphicsContext gc)
    {
       run();
+      System.out.println("Outside bubble draw");
       next.draw(gc);
+      System.out.println("In bubble draw");
       gc.setFill(Color.CYAN);
       gc.fillOval(bubbleX, bubbleY, bubbleRad, bubbleRad);
      
@@ -72,7 +74,7 @@ public class BubbleDecorator extends DecoratorParent {
       return type;
    }
    
-   public int getBubbleSize()
+   public double getBubbleSize()
    {
       return bubbleSize;
    }
