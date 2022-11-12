@@ -20,6 +20,9 @@ import javafx.scene.shape.Circle;
 public class BubbleDecorator extends DecoratorParent {
 
    //Variables for the bubble attributes
+   int x;
+   int y;
+   int rad;
    int bubbleX;
    int bubbleY;
    int bubbleRad;
@@ -62,11 +65,22 @@ public class BubbleDecorator extends DecoratorParent {
       //Runs the bubble
       run();
       
+      next.setPos(x, y, rad);
+      
       //Draws the bubble
       next.draw(gc);
       gc.setFill(Color.CYAN);
-      gc.fillOval(bubbleX, bubbleY, bubbleRad, bubbleRad);
+      gc.fillOval(bubbleX + x + rad - 5, bubbleY + y + rad - 5, bubbleRad, bubbleRad);
    }
+   
+   
+   public void setPos(int x, int y, int rad)
+   {
+      this.x = x;
+      this.y = y;
+      this.rad = rad;
+   }
+   
    
    //Returns the type
    public int getType()

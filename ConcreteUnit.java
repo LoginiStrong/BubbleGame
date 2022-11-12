@@ -24,18 +24,27 @@ public class ConcreteUnit extends AbstractUnit {
    int posY;
    
    //Constructor to take in radius and x/y position
-   public ConcreteUnit(int radius, int posX, int posY)
+   public ConcreteUnit(int radius)
    {
       this.radius = radius;
-      this.posX = posX;
-      this.posY = posY;
    }
    
    //Draws the unit
    public void draw(GraphicsContext gc)
    {
       gc.setFill(Color.RED);
-      gc.fillOval(posX, posY, radius, radius);
+      gc.fillOval(posX, posY, radius*2, radius*2);
+   }
+   
+   public void setPos(int x, int y, int rad)
+   {
+      posX = x;
+      posY = y;
+   }
+   
+   public int getRad()
+   {
+      return radius;
    }
    
    //Gets position of the where the unit is going to

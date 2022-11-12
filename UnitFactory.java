@@ -24,16 +24,20 @@ public class UnitFactory{
    
    }
    
-   public UnitFactory(int radius, int posX, int posY)
+   public UnitFactory(int radius)
    {
-      ConcreteUnit CU = new ConcreteUnit(radius, posX, posY);
+      ConcreteUnit CU = new ConcreteUnit(radius);
+      int rad = CU.getRad();
       last = CU;
-      HealthNodeFactory HF = new HealthNodeFactory(150, 180, 100, 30, last);
+      HealthNodeFactory HF = new HealthNodeFactory(0, 5, 10, 5, last);
       last = HF.getHDecor();
-      BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, last);
-      
-      
+      HealthNodeFactory HF1 = new HealthNodeFactory(0, -5, 10, 8, last);
+      last = HF1.getHDecor();
+      BubbleFactory BF = new BubbleFactory(0, 10, 1, 5, 3, 2, 2, 100, 5 , last);
       last = BF.getBDecor();
+      BubbleFactory BF1 = new BubbleFactory( 0, -10, 1, 5, .5, 10, .1, 150, 2.5, last);
+      last = BF1.getBDecor();
+      BF1.getBDecor().setPos(0, 0, rad);
       
    }
    

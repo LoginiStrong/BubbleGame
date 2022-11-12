@@ -19,6 +19,10 @@ import javafx.scene.shape.Circle;
 
 public class HealthDecorator extends DecoratorParent {
 
+
+   int x;
+   int y;
+   int rad;
    int healthX;
    int healthY;
    int HP;
@@ -27,6 +31,9 @@ public class HealthDecorator extends DecoratorParent {
    
    public HealthDecorator(int healthX, int healthY, int HP, int healthRad, AbstractUnit next)
    {
+      this.x = x;
+      this.y = y;
+      this.rad = rad;
       this.healthX = healthX;
       this.healthY = healthY;
       this.HP = HP;
@@ -52,6 +59,7 @@ public class HealthDecorator extends DecoratorParent {
    public void draw(GraphicsContext gc)
    {
       run();
+      next.setPos(x, y, rad);
       next.draw(gc);
       if (dead == false)
       {
@@ -61,7 +69,14 @@ public class HealthDecorator extends DecoratorParent {
       {
          gc.setFill(Color.BLACK);
       }
-      gc.fillOval(healthX, healthY, healthRad, healthRad); 
+      gc.fillOval(healthX + x + rad - 5, healthY + y + rad - 5, healthRad, healthRad); 
+   }
+   
+   public void setPos(int x, int y, int rad)
+   {
+      this.x = x;
+      this.y = y;
+      this.rad = rad;
    }
 
    public int getHP()

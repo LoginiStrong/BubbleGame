@@ -20,6 +20,7 @@ public abstract class AbstractUnit extends GameObject {
     
     
     public abstract void draw(GraphicsContext gc);
+    public abstract void setPos(int x, int y, int rad);
     
     
     /*public AbstractUnit next;

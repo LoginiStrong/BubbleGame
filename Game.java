@@ -24,7 +24,7 @@ public class Game extends Canvas
    //HealthDecorator hD = new HealthDecorator(80, 180, 100, 30, CU);
    //HealthDecorator hD2 = new HealthDecorator(150, 180, 100, 30, hD);
    //BubbleDecorator bD = new BubbleDecorator(155, 185, 1, 15, 0.5, hD2);
-   UnitFactory UF = new UnitFactory(200, 70, 150);
+   UnitFactory UF = new UnitFactory(30);
   // BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, UF.getLast());
    
    Player p1 = new Player(100,100);
