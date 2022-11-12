@@ -102,6 +102,9 @@ public class Player extends GameObject {
         return v2;
 
     }
+    
+   
+    
 
     public void draw(GraphicsContext gc){
 

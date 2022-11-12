@@ -20,7 +20,7 @@ public class BubbleFactory extends UnitFactory {
    }
    
    //Gets the bubble decorator as an AbstractUnit
-   public AbstractUnit getBDecor()
+   public AbstractUnit getDecor()
    {
       return bDecor;
    }

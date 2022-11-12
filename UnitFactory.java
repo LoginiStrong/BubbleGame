@@ -19,6 +19,7 @@ import javafx.scene.shape.Circle;
 public class UnitFactory{
    //Abstract method
    private AbstractUnit last;
+   //protected AbstractUnit decor; 
    
    public UnitFactory(){
    
@@ -30,14 +31,14 @@ public class UnitFactory{
       int rad = CU.getRad();
       last = CU;
       HealthNodeFactory HF = new HealthNodeFactory(0, 5, 10, 5, last);
-      last = HF.getHDecor();
+      last = HF.getDecor();
       HealthNodeFactory HF1 = new HealthNodeFactory(0, -5, 10, 8, last);
-      last = HF1.getHDecor();
+      last = HF1.getDecor();
       BubbleFactory BF = new BubbleFactory(0, 10, 1, 5, 3, 2, 2, 100, 5 , last);
-      last = BF.getBDecor();
+      last = BF.getDecor();
       BubbleFactory BF1 = new BubbleFactory( 0, -10, 1, 5, .5, 10, .1, 150, 2.5, last);
-      last = BF1.getBDecor();
-      BF1.getBDecor().setPos(0, 0, rad);
+      last = BF1.getDecor();
+      BF1.getDecor().setPos(0, 0, rad);
       
    }
    

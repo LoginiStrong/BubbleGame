@@ -65,7 +65,7 @@ public abstract class GameObject
       return side;
    }
    
-   public abstract void setPos(int x, int y, int rad);
+   
    
    
    //a class representing a vector2 -> a vector of only x and y (as opposed to a vector 3 which would be for 3D space).

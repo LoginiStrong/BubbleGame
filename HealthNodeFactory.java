@@ -27,7 +27,7 @@ public class HealthNodeFactory extends UnitFactory {
       hDecor = hD;
    }
    
-   public AbstractUnit getHDecor()
+   public AbstractUnit getDecor()
    {
       return hDecor;
    }
