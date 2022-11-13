@@ -19,6 +19,7 @@ public class Map
 {
    ArrayList<Obstacle> obs = new ArrayList<Obstacle>();
    public ArrayList<UnitFactory> UFS = new ArrayList<UnitFactory>();
+   ArrayList<AbstractUnit> AU = new ArrayList<AbstractUnit>();
    int xSize;
    int ySize;
    
@@ -56,30 +57,39 @@ public class Map
       }
       
       int numOfUnits = fileScanner.nextInt();
+      //System.out.println(numOfUnits);
+      //System.out.println(UFS.size());
       String name;
       for (int i = 0; i < numOfUnits; i++)
       {
          name = fileScanner.next();
          int x;
          int y;
+         x = fileScanner.nextInt();
+         y = fileScanner.nextInt();
+         
          for (int j = 0; j < UFS.size(); j++)
          {
             if (UFS.get(j).getName().equals(name))
             {
-               x = fileScanner.nextInt();
-               y = fileScanner.nextInt();
+               System.out.println("Ran");
+               AbstractUnit temp = UFS.get(j).getLast();
+               AU.add(temp);
                System.out.println(x + "      " + y);
-               UFS.get(i).getLast().setPos(x, y);
+               //UFS.get(j).getLast().setPos(x, y);
+               
                fileScanner.next();
             }
          }
+         AU.get(i).setPos(x, y);
+         
       
       }
       
       
       
-         UnitFactory temp = UFS.get(0);
-         temp.getLast().setPos(0, 0);
+        // UnitFactory temp = UFS.get(0);
+         //temp.getLast().setPos(0, 0);
       
       
       
@@ -158,6 +168,11 @@ public class Map
    public ArrayList<UnitFactory> getList()
    {
       return UFS;
+   }
+   
+   public ArrayList<AbstractUnit> getUnits()
+   {
+      return AU;
    }
    
    //drawing the map and obstacles
