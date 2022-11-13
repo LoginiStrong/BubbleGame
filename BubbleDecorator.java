@@ -34,8 +34,9 @@ public class BubbleDecorator extends DecoratorParent {
    double bubbleSize;
    
    //Constructor to get the bubble attributes
-   public BubbleDecorator(int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, double bubbleSize, AbstractUnit next)
+   public BubbleDecorator(int rad, int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, double bubbleSize, AbstractUnit next)
    {
+      this.rad = rad;
       this.bubbleX = bubbleX;
       this.bubbleY = bubbleY;
       this.type = type;
@@ -65,7 +66,7 @@ public class BubbleDecorator extends DecoratorParent {
       //Runs the bubble
       run();
       
-      next.setPos(x, y, rad);
+      next.setPos(x, y);
       
       //Draws the bubble
       next.draw(gc);
@@ -74,11 +75,10 @@ public class BubbleDecorator extends DecoratorParent {
    }
    
    
-   public void setPos(int x, int y, int rad)
+   public void setPos(int x, int y)
    {
       this.x = x;
       this.y = y;
-      this.rad = rad;
    }
    
    

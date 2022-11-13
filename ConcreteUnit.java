@@ -22,9 +22,10 @@ public class ConcreteUnit extends AbstractUnit {
    int radius; 
    int posX;
    int posY;
+   double speed;
    
    //Constructor to take in radius and x/y position
-   public ConcreteUnit(int radius)
+   public ConcreteUnit(int radius, double speed)
    {
       this.radius = radius;
    }
@@ -36,16 +37,22 @@ public class ConcreteUnit extends AbstractUnit {
       gc.fillOval(posX, posY, radius*2, radius*2);
    }
    
-   public void setPos(int x, int y, int rad)
+   public void setPos(int x, int y)
    {
       posX = x;
       posY = y;
    }
    
-   public int getRad()
+   /*public int getRad()
    {
       return radius;
+   }*/
+   
+   public double getSpeed()
+   {
+      return speed;
    }
+   
    
    //Gets position of the where the unit is going to
    public Vector2 getPosition()

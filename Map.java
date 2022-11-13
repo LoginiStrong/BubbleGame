@@ -18,7 +18,7 @@ import javafx.application.Application;
 public class Map
 {
    ArrayList<Obstacle> obs = new ArrayList<Obstacle>();
-   
+   public ArrayList<UnitFactory> UFS = new ArrayList<UnitFactory>();
    int xSize;
    int ySize;
    
@@ -42,10 +42,51 @@ public class Map
       {
          obs.add(theMap.get(fileScanner.next()).clone(fileScanner.nextInt(),fileScanner.nextInt()));
       } 
+      //Scanner scan = fileScanner;
+      //System.out.println(scan.next() + "\n");
+      
+      int numOfTypes = fileScanner.nextInt();
+      
+      for (int i = 0; i < numOfTypes; i++)
+      {
+         UnitFactory UF = new UnitFactory(fileScanner.next(), fileScanner.nextInt(), fileScanner.nextDouble(), fileScanner);
+         System.out.println("Called");
+         UFS.add(UF);
+         
+      }
+      
+      int numOfUnits = fileScanner.nextInt();
+      String name;
+      for (int i = 0; i < numOfUnits; i++)
+      {
+         name = fileScanner.next();
+         int x;
+         int y;
+         for (int j = 0; j < UFS.size(); j++)
+         {
+            if (UFS.get(j).getName().equals(name))
+            {
+               x = fileScanner.nextInt();
+               y = fileScanner.nextInt();
+               System.out.println(x + "      " + y);
+               UFS.get(i).getLast().setPos(x, y);
+               fileScanner.next();
+            }
+         }
+      
+      }
+      
+      
+      
+         UnitFactory temp = UFS.get(0);
+         temp.getLast().setPos(0, 0);
+      
+      
+      
       
       //Reading from the map file
       //Number of types reading in
-      int amount = Integer.parseInt(fileScanner.next());
+      /*int amount = Integer.parseInt(fileScanner.next());
       System.out.println("Amount:"+amount);
       
       //Loops through the number of types
@@ -103,7 +144,7 @@ public class Map
          float yPos = Float.parseFloat(fileScanner.next());
          float player = Float.parseFloat(fileScanner.next());
          System.out.println("XPos: "+xPos+"  YPos: "+yPos+"  Player: "+player);
-      }
+      }*/
    }
 
    boolean first=true;
@@ -113,6 +154,11 @@ public class Map
    public int getYSize(){return ySize;}
    
    final int SQAURESIZE = 50;
+   
+   public ArrayList<UnitFactory> getList()
+   {
+      return UFS;
+   }
    
    //drawing the map and obstacles
    public void draw(GraphicsContext gc)

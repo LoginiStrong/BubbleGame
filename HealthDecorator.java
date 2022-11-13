@@ -29,7 +29,7 @@ public class HealthDecorator extends DecoratorParent {
    int healthRad;
    boolean dead = false;
    
-   public HealthDecorator(int healthX, int healthY, int HP, int healthRad, AbstractUnit next)
+   public HealthDecorator(int rad, int healthX, int healthY, int HP, int healthRad, AbstractUnit next)
    {
       this.x = x;
       this.y = y;
@@ -59,7 +59,7 @@ public class HealthDecorator extends DecoratorParent {
    public void draw(GraphicsContext gc)
    {
       run();
-      next.setPos(x, y, rad);
+      next.setPos(x, y);
       next.draw(gc);
       if (dead == false)
       {
@@ -72,11 +72,10 @@ public class HealthDecorator extends DecoratorParent {
       gc.fillOval(healthX + x + rad - 5, healthY + y + rad - 5, healthRad, healthRad); 
    }
    
-   public void setPos(int x, int y, int rad)
+   public void setPos(int x, int y)
    {
       this.x = x;
       this.y = y;
-      this.rad = rad;
    }
 
    public int getHP()

@@ -19,27 +19,49 @@ import javafx.scene.shape.Circle;
 public class UnitFactory{
    //Abstract method
    private AbstractUnit last;
+   private AbstractUnit concrete;
+   String att;
+   int rad;
+   String name;
    //protected AbstractUnit decor; 
    
    public UnitFactory(){
    
    }
    
-   public UnitFactory(int radius)
+   public UnitFactory(String name, int radius, double speed, Scanner scan)
    {
-      ConcreteUnit CU = new ConcreteUnit(radius);
-      int rad = CU.getRad();
+      this.name = name;
+      rad = radius;
+      ConcreteUnit CU = new ConcreteUnit(radius, speed);
       last = CU;
-      HealthNodeFactory HF = new HealthNodeFactory(0, 5, 10, 5, last);
-      last = HF.getDecor();
-      HealthNodeFactory HF1 = new HealthNodeFactory(0, -5, 10, 8, last);
-      last = HF1.getDecor();
-      BubbleFactory BF = new BubbleFactory(0, 10, 1, 5, 3, 2, 2, 100, 5 , last);
-      last = BF.getDecor();
-      BubbleFactory BF1 = new BubbleFactory( 0, -10, 1, 5, .5, 10, .1, 150, 2.5, last);
-      last = BF1.getDecor();
-      BF1.getDecor().setPos(0, 0, rad);
+      concrete = CU;
+      int attributeNum = scan.nextInt();
+      System.out.println(attributeNum);
+      for (int i = 0; i < attributeNum; i++)
+      {
+      att = scan.next();
+         if (att.equals("health"))
+         {
+            HealthNodeFactory HF = new HealthNodeFactory(radius, scan.nextInt(), scan.nextInt(), scan.nextInt(), scan.nextInt(), last);
+            
+            last = HF.getDecor();
+         }
+         else if (att.equals("bubble"))
+         {
+            BubbleFactory BF = new BubbleFactory(radius, scan.nextInt(), scan.nextInt(), scan.nextInt(), scan.nextInt(), scan.nextDouble(), scan.nextInt(), scan.nextDouble(), scan.nextInt(), scan.nextDouble(), last);
+            last = BF.getDecor();
+         }  
+         //System.out.println(att);
+            //HealthNodeFactory HF1 = new HealthNodeFactory(0, -5, 10, 8, last);
+            //last = HF1.getDecor();
+            
+            //BubbleFactory BF1 = new BubbleFactory( 0, -10, 1, 5, .5, 10, .1, 150, 2.5, last);
+            //last = BF1.getDecor();  
+      }
       
+      
+         //last.setPos(0, 0, radius);           
    }
    
    public AbstractUnit getLast()
@@ -47,10 +69,25 @@ public class UnitFactory{
       return last;
    }
    
+   public int getRad()
+   {
+      return rad;
+   }
+   
+   public AbstractUnit getConcrete()
+   {
+      return concrete;
+   }
+   
    public void setLast(AbstractUnit decor)
    {
       last = decor;
       System.out.println("Called");
+   }
+   
+   public String getName()
+   {
+      return name;
    }
    
    //public abstract AbstractUnit create(AbstractUnit next);

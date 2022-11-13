@@ -21,9 +21,9 @@ public class HealthNodeFactory extends UnitFactory {
    AbstractUnit hDecor;
    
    //Constructor
-   public HealthNodeFactory(int healthX, int healthY, int HP, int healthRad, AbstractUnit next)
+   public HealthNodeFactory(int rad, int healthX, int healthY, int HP, int healthRad, AbstractUnit next)
    {
-      HealthDecorator hD = new HealthDecorator( healthX, healthY, HP, healthRad, next);
+      HealthDecorator hD = new HealthDecorator(rad, healthX, healthY, HP, healthRad, next);
       hDecor = hD;
    }
    

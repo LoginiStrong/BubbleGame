@@ -7,10 +7,10 @@ public class BubbleFactory extends UnitFactory {
    AbstractUnit bDecor;
    
    //Constructor to take in the attributes of a bubble
-   public BubbleFactory(int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, double bubbleSize, AbstractUnit next)
+   public BubbleFactory(int rad, int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, double bubbleSize, AbstractUnit next)
    {
       //Calls on the bubble decorator to create the bubble
-      BubbleDecorator bD = new BubbleDecorator(bubbleX, bubbleY, type, bubbleRad, damage, speed, refire, range, bubbleSize, next);
+      BubbleDecorator bD = new BubbleDecorator(rad, bubbleX, bubbleY, type, bubbleRad, damage, speed, refire, range, bubbleSize, next);
       
       //Sets the AbstractUnit to the created Bubble Decorator
       bDecor = bD;

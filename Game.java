@@ -20,11 +20,13 @@ import java.text.*;
 public class Game extends Canvas
 {
    Map theMap = new Map();
+   ArrayList<UnitFactory> UFS;
    //ConcreteUnit CU = new ConcreteUnit(200, 70, 150);
    //HealthDecorator hD = new HealthDecorator(80, 180, 100, 30, CU);
    //HealthDecorator hD2 = new HealthDecorator(150, 180, 100, 30, hD);
    //BubbleDecorator bD = new BubbleDecorator(155, 185, 1, 15, 0.5, hD2);
-   UnitFactory UF = new UnitFactory(30);
+   Scanner dud = new Scanner("System.in");
+   //UnitFactory UF = new UnitFactory(30, dud);
   // BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, UF.getLast());
    
    Player p1 = new Player(100,100);
@@ -111,6 +113,7 @@ public class Game extends Canvas
 
    public void draw()
    {
+    ArrayList<UnitFactory> UFS = theMap.getList();
       GraphicsContext gc = getGraphicsContext2D();
       gc.setFill(Color.BLACK);
       gc.fillRect(0,0,800,600);
@@ -123,7 +126,9 @@ public class Game extends Canvas
       p1.draw(gc);
       //hD.run();
       //bD.draw(gc);
-      UF.getLast().draw(gc);
+      //UF.getLast().draw(gc);
+      (UFS.get(0)).getLast().draw(gc);
+      (UFS.get(1)).getLast().draw(gc);
       //System.out.println((UF.getLast());
       
 
