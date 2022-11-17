@@ -121,13 +121,13 @@ public class UnitFactory{
          ArrayList<String> tempArray = attLists.get(i);
          if (attLists.get(i).get(0).equals("health"))
          {
-            HealthDecorator hD = new HealthDecorator(rad, Integer.parseInt(tempArray.get(1)), Integer.parseInt(tempArray.get(2)), Integer.parseInt(tempArray.get(3)), Integer.parseInt(tempArray.get(4)), last);
-            last = hD;
+            HealthNodeFactory HF = new HealthNodeFactory(rad, Integer.parseInt(tempArray.get(1)), Integer.parseInt(tempArray.get(2)), Integer.parseInt(tempArray.get(3)), Integer.parseInt(tempArray.get(4)), last);
+            last = HF.getDecor();
          }
          else if (attLists.get(i).get(0).equals("bubble"))
          {
-            BubbleDecorator bD = new BubbleDecorator(rad, Integer.parseInt(tempArray.get(1)), Integer.parseInt(tempArray.get(2)), Integer.parseInt(tempArray.get(3)), Integer.parseInt(tempArray.get(4)), Double.parseDouble(tempArray.get(5)), Integer.parseInt(tempArray.get(6)), Double.parseDouble(tempArray.get(7)), Integer.parseInt(tempArray.get(8)), Double.parseDouble(tempArray.get(9)), last);
-            last = bD;
+            BubbleFactory BF = new BubbleFactory(rad, Integer.parseInt(tempArray.get(1)), Integer.parseInt(tempArray.get(2)), Integer.parseInt(tempArray.get(3)), Integer.parseInt(tempArray.get(4)), Double.parseDouble(tempArray.get(5)), Integer.parseInt(tempArray.get(6)), Double.parseDouble(tempArray.get(7)), Integer.parseInt(tempArray.get(8)), Double.parseDouble(tempArray.get(9)), last);
+            last = BF.getDecor();
          }
          
       }
