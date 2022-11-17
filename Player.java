@@ -139,7 +139,7 @@ public class Player extends GameObject {
 
         }
 
-        removeBubbles();
+       //removeBubbles();
 
         Bubble temp = head;
 

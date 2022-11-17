@@ -7,7 +7,7 @@ public class commandC implements command{
     }
 
     public void execute(Player p1, int mouseX, int mouseY){
-        System.out.println("this should print the c command");
+        //System.out.println("this should print the c command");
 
         if(p1.selected){
 

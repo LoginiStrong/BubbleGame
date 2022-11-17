@@ -1,7 +1,7 @@
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Bubble extends AbstractUnit{
+public class Bubble {
 
     //position and velocity
     float x;
@@ -19,13 +19,6 @@ public class Bubble extends AbstractUnit{
     Bubble next = null;
     Bubble previous = null;
     
-    public Vector2 getPosition(){
-        return null;
-    }
-    public void setPos(int x, int y){
-
-    }
-
 
     //this constructor is used to set the velocity of the bubble
     public Bubble(float x, float y, float velX, float velY, boolean placeholder){
@@ -37,6 +30,28 @@ public class Bubble extends AbstractUnit{
         st = new Strategy0();
 
         lifetime = 5;
+    }
+
+    public void removeSelf(){
+
+        if(previous == null){
+            return;
+        }
+
+        if(next == null){
+            previous.setNext(null);
+        }
+        else{
+            previous.setNext(next);
+        }
+
+    }
+
+    public boolean hasNext(){
+        if(next!= null){
+            return true;
+        }
+        return false;
     }
 
     //this bubble sets the strategy of the bubble
@@ -79,7 +94,7 @@ public class Bubble extends AbstractUnit{
 
         lifetime = 5;
 
-        st = new Strategy1();
+        st = new Strategy0();
 
     }
 

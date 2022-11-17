@@ -19,6 +19,10 @@ import java.text.*;
 
 public class Game extends Canvas
 {
+
+   Singleton BubbleSingle = Singleton.getInstance();
+   bIterator bit = new bIterator(null);
+
    Map theMap = new Map();
    ArrayList<AbstractUnit> AU;
    //ConcreteUnit CU = new ConcreteUnit(200, 70, 150);
@@ -81,31 +85,28 @@ public class Game extends Canvas
    {
    }
    
-   //New draw method given to us
-   /*public void draw()
-   {
-      GraphicsContext gc = getGraphicsContext2D();
-      gc.setFill(Color.BLACK);
-      gc.fillRect(0,0,800,600);
-      
-      //moves to center 
-      gc.translate( (800-theMap.getXSize())/2, (600 - theMap.getYSize())/2);
-      theMap.draw(gc);
-      for(int i=0;i<units.size();i++)
-      {
-         units.get(i).draw(gc);
+
+   public void addBubble(Bubble b){
+
+      if(BubbleSingle.getHead() == null){
+          BubbleSingle.setHead(b);
+          
       }
-      
-      BubbleList.BubbleListIterator BLI = BubbleList.getInstance().getIterator();
-      while(BLI.hasNext())
-      {
-         Bubble b = BLI.next();
-         b.draw(gc);
+      else{
+          
+          Bubble temp = BubbleSingle.getHead();
+
+          while(temp.getNext()!= null){
+              temp = temp.getNext();
+            
+          }
+          
+          temp.setNext(b);
+          b.setPrev(temp);
+        
       }
-      
-      //un "centers". Why pop matrix no work :(  ?????  Meh
-      gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);
-   }*/
+
+  }
    
    public void setCom(String s){
       com = s;
@@ -113,7 +114,7 @@ public class Game extends Canvas
 
    public void draw()
    {
-    ArrayList<AbstractUnit> AU = theMap.getUnits();
+      ArrayList<AbstractUnit> AU = theMap.getUnits();
       GraphicsContext gc = getGraphicsContext2D();
       gc.setFill(Color.BLACK);
       gc.fillRect(0,0,800,600);
@@ -135,6 +136,11 @@ public class Game extends Canvas
       //System.out.println((UF.getLast());
       
 
+      bit = new bIterator(BubbleSingle.getHead());
+      bit.remove();
+      bit.draw(gc);
+
+      BubbleSingle.bubbleLength();
       //un "centers". Why pop matrix no work :(  ?????  Meh
       gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);
 

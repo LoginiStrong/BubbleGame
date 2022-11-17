@@ -205,7 +205,7 @@ public class Main extends Application
          int y = (int) me.getY();
 
          Bubble b = new Bubble(theGame.p1.x,theGame.p1.y, x-xt, y-yt);
-         theGame.p1.addBubble(b);
+         theGame.addBubble(b);
 
          commander.execute(theGame.p1, x-xt, y-yt);
          

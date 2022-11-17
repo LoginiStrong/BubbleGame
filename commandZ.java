@@ -23,7 +23,7 @@ public class commandZ implements command{
     }
 
     public void execute(Player p1, int mouseX, int mouseY){
-        System.out.println("this should print the z command");
+        //System.out.println("this should print the z command");
 
         if(intersection(mouseX,mouseY,p1.x, p1.y, p1.radius, p1.radius)){
             p1.toggleOn();
