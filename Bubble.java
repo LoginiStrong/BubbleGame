@@ -94,7 +94,7 @@ public class Bubble {
 
         lifetime = 5;
 
-        st = new Strategy0();
+        st = new Strategy1();
 
     }
 

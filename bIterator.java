@@ -67,13 +67,13 @@ import java.text.*;
 
       }
 
-      public void remove()
+      public Bubble remove()
       {
          //System.out.println("Remove 1");
          Bubble temp = head;
 
          if(temp == null){ //if the head is null, do nothing
-            return;
+            return null;
          }
          else if(temp.getNext()==null){ //if the head is standalone, just check the head
                if(temp.lifetime<=0){
@@ -105,6 +105,8 @@ import java.text.*;
 
             }
         }
-        
+      
+        return head;
+
       }
    }

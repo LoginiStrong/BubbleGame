@@ -137,10 +137,10 @@ public class Game extends Canvas
       
 
       bit = new bIterator(BubbleSingle.getHead());
-      bit.remove();
+      BubbleSingle.setHead(bit.remove());
       bit.draw(gc);
-
       BubbleSingle.bubbleLength();
+
       //un "centers". Why pop matrix no work :(  ?????  Meh
       gc.translate( (800-theMap.getXSize())/-2, (600 - theMap.getYSize())/-2);
 
