@@ -98,5 +98,10 @@ public class HealthDecorator extends DecoratorParent {
    {
       return dead;
    }
+   
+   public AbstractUnit getNext()
+   {
+      return next;
+   }
 
 }

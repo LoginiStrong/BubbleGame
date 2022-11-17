@@ -117,4 +117,10 @@ public class BubbleDecorator extends DecoratorParent {
    {
       return damage; 
    } 
+   
+   public AbstractUnit getNext()
+   {
+      return next;
+   }
+   
 }
