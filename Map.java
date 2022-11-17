@@ -72,8 +72,9 @@ public class Map
          {
             if (UFS.get(j).getName().equals(name))
             {
+               AbstractUnit temp = UFS.get(j).createUnit();
                System.out.println("Ran");
-               AbstractUnit temp = UFS.get(j).getLast();
+              // AbstractUnit temp = UFS.get(j).getLast();
                AU.add(temp);
                System.out.println(x + "      " + y);
                //UFS.get(j).getLast().setPos(x, y);

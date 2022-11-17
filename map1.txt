@@ -23,9 +23,10 @@ type2 15 .5 2
 health 10 0 5 10 
 health -10 0 5 10
 
-2
+3
 type1 0 0 0 
 type2 200 0 1 
+type1 0 200 2
 
 
 
