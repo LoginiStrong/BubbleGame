@@ -20,6 +20,7 @@ public class Map
    ArrayList<Obstacle> obs = new ArrayList<Obstacle>();
    public ArrayList<UnitFactory> UFS = new ArrayList<UnitFactory>();
    ArrayList<AbstractUnit> AU = new ArrayList<AbstractUnit>();
+   ArrayList<ConcreteUnit> CU = new ArrayList<ConcreteUnit>();
    int xSize;
    int ySize;
    
@@ -67,6 +68,8 @@ public class Map
          int y;
          x = fileScanner.nextInt();
          y = fileScanner.nextInt();
+         String side = fileScanner.next();
+         
          
          for (int j = 0; j < UFS.size(); j++)
          {
@@ -76,13 +79,15 @@ public class Map
                System.out.println("Ran");
               // AbstractUnit temp = UFS.get(j).getLast();
                AU.add(temp);
+               CU.add(UFS.get(j).getConcrete());
                System.out.println(x + "      " + y);
                //UFS.get(j).getLast().setPos(x, y);
                
-               fileScanner.next();
+               //fileScanner.next();
             }
          }
          AU.get(i).setPos(x, y);
+         CU.get(i).setSide(side);
          
       
       }
