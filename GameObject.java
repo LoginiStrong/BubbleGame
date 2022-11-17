@@ -60,10 +60,10 @@ public abstract class GameObject
    }
    
    //which side owns the bubble
-   public int getSide()
+   /*public int getSide()
    {
       return side;
-   }
+   }*/
    
    
    

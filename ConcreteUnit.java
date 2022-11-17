@@ -23,6 +23,7 @@ public class ConcreteUnit extends AbstractUnit {
    int posX;
    int posY;
    double speed;
+   String side;
    
    //Constructor to take in radius and x/y position
    public ConcreteUnit(int radius, double speed)
@@ -33,7 +34,15 @@ public class ConcreteUnit extends AbstractUnit {
    //Draws the unit
    public void draw(GraphicsContext gc)
    {
-      gc.setFill(Color.RED);
+      if (side.equals("0"))
+      {
+         gc.setFill(Color.RED);
+      }
+      else 
+      {
+         gc.setFill(Color.BLUE);
+      }
+      
       gc.fillOval(posX, posY, radius*2, radius*2);
    }
    
@@ -53,6 +62,15 @@ public class ConcreteUnit extends AbstractUnit {
       return speed;
    }
    
+   public void setSide(String team)
+   {
+      side = team;
+   }
+   
+   public String getSide()
+   {
+      return side;
+   }
    
    //Gets position of the where the unit is going to
    public Vector2 getPosition()

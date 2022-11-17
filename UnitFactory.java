@@ -19,7 +19,7 @@ import javafx.scene.shape.Circle;
 public class UnitFactory{
    //Abstract method
    private AbstractUnit last;
-   private AbstractUnit concrete;
+   private ConcreteUnit concrete;
    int attributes;
    int rad;
    String strRad;
@@ -131,6 +131,7 @@ public class UnitFactory{
          }
          
       }
+
       return last;
    
    }
@@ -146,7 +147,7 @@ public class UnitFactory{
       return rad;
    }
    
-   public AbstractUnit getConcrete()
+   public ConcreteUnit getConcrete()
    {
       return concrete;
    }
