@@ -1,7 +1,7 @@
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Bubble {
+public class Bubble extends AbstractUnit{
 
     //position and velocity
     float x;
@@ -19,6 +19,13 @@ public class Bubble {
     Bubble next = null;
     Bubble previous = null;
     
+    public Vector2 getPosition(){
+        return null;
+    }
+    public void setPos(int x, int y){
+
+    }
+
 
     //this constructor is used to set the velocity of the bubble
     public Bubble(float x, float y, float velX, float velY, boolean placeholder){
