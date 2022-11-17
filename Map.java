@@ -88,79 +88,15 @@ public class Map
          }
          AU.get(i).setPos(x, y);
          CU.get(i).setSide(side);
+         //CU.get(i).isSelected(true);
          
       
       }
+      //CU.get(0).isSelected(true);
+      ///CU.get(2).isSelected(true);
+      //CU.get(i).isSelected(true);
       
       
-      
-        // UnitFactory temp = UFS.get(0);
-         //temp.getLast().setPos(0, 0);
-      
-      
-      
-      
-      //Reading from the map file
-      //Number of types reading in
-      /*int amount = Integer.parseInt(fileScanner.next());
-      System.out.println("Amount:"+amount);
-      
-      //Loops through the number of types
-      for(int i = 0; i < amount; i++)
-      {
-         String type = fileScanner.next();                      //Takes in the kind of type
-         float radius = Float.parseFloat(fileScanner.next());   //Takes in the radius
-         float speed = Float.parseFloat(fileScanner.next());    //Takes in the speed
-         int attributes = Integer.parseInt(fileScanner.next()); //Takes in the number of attributes
-         
-         System.out.println("Type: "+type+"  Radius: "+radius+"  Speed: "+speed+"  Attributes: "+attributes);
-         //Loops through the number of attributes
-         for(int j = 0; j < attributes; j++)
-         {
-            //Takes in the name
-            String name = fileScanner.next();
-            System.out.println("Name: "+name);
-            //If health
-            if(name.equals("health"))
-            {
-               //Takes in the attributes for the health
-               float xHealth = Float.parseFloat(fileScanner.next());
-               float yHealth = Float.parseFloat(fileScanner.next());
-               float hp = Float.parseFloat(fileScanner.next());
-               float rad = Float.parseFloat(fileScanner.next());
-               System.out.println("X: "+xHealth+"  Y: "+yHealth+"  HP: "+hp+"  Rad: "+rad);
-            }
-            //If bubble
-            else if(name.equals("bubble"))
-            {
-               //Takes in the attributes for the bubble
-               float xBubble = Float.parseFloat(fileScanner.next());
-               float yBubble = Float.parseFloat(fileScanner.next());
-               float bubbleType = Float.parseFloat(fileScanner.next());
-               float size = Float.parseFloat(fileScanner.next());
-               float damage = Float.parseFloat(fileScanner.next());
-               float bubbleSpeed = Float.parseFloat(fileScanner.next());
-               float refire = Float.parseFloat(fileScanner.next());
-               float range = Float.parseFloat(fileScanner.next());
-               float bubbleSize = Float.parseFloat(fileScanner.next());
-               System.out.println("X: "+xBubble+"  Y: "+yBubble+"  Type: "+bubbleType+"  Size: "+size+"  Damage: "+damage+
-                  "  BubbleSpeed: "+bubbleSpeed+"  Refire: "+refire+"  Range: "+range+"  Size: "+bubbleSize);
-            }
-         }
-      }
-      //Takes in the number of types
-      int numberTypes = Integer.parseInt(fileScanner.next());
-      System.out.println("Types: "+numberTypes);
-      //Loops through the number given
-      for(int z = 0; z < numberTypes; z++)
-      {
-         //Takes in the name, x/y position, and the player
-         String typeName = fileScanner.next();
-         float xPos = Float.parseFloat(fileScanner.next());
-         float yPos = Float.parseFloat(fileScanner.next());
-         float player = Float.parseFloat(fileScanner.next());
-         System.out.println("XPos: "+xPos+"  YPos: "+yPos+"  Player: "+player);
-      }*/
    }
 
    boolean first=true;
@@ -179,6 +115,11 @@ public class Map
    public ArrayList<AbstractUnit> getUnits()
    {
       return AU;
+   }
+   
+    public ArrayList<ConcreteUnit> getConcreteUnits()
+   {
+      return CU;
    }
    
    //drawing the map and obstacles

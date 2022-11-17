@@ -25,9 +25,12 @@ public class HealthDecorator extends DecoratorParent {
    int rad;
    int healthX;
    int healthY;
+   int maxHP;
    int HP;
    int healthRad;
    boolean dead = false;
+   int green = 255;
+   //Color hPColor = new Color(0, green, 0);
    
    public HealthDecorator(int rad, int healthX, int healthY, int HP, int healthRad, AbstractUnit next)
    {
@@ -37,6 +40,7 @@ public class HealthDecorator extends DecoratorParent {
       this.healthX = healthX;
       this.healthY = healthY;
       this.HP = HP;
+      maxHP = HP;
       this.healthRad = healthRad;
       this.next = next;
       
@@ -45,6 +49,8 @@ public class HealthDecorator extends DecoratorParent {
    
    public void run()
    {
+      green = green*(HP/maxHP);
+   
       if (HP <= 0)
       {
          dead = true;
@@ -63,7 +69,7 @@ public class HealthDecorator extends DecoratorParent {
       next.draw(gc);
       if (dead == false)
       {
-         gc.setFill(Color.GREEN);
+         gc.setFill(Color.rgb(0,green,0));
       }
       else
       {
