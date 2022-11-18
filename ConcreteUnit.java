@@ -32,6 +32,16 @@ public class ConcreteUnit extends AbstractUnit {
       this.radius = radius;
    }
    
+   public AbstractUnit getNext(){return null;}
+
+   public int getX(){
+      return posX;
+   }
+
+   public int getY(){
+      return posY;
+   }
+
    //Draws the unit
    public void draw(GraphicsContext gc)
    {

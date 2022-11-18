@@ -11,13 +11,7 @@ public class Singleton
    }
    
    public void bubbleLength(){
-      int length = 0;
-      Bubble t = headList;
-      while(t!=null){
-         length++;
-         t = t.getNext();
-      }
-      System.out.println(length);
+      
 
    }
 

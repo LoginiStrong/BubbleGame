@@ -13,6 +13,9 @@ public class Player extends GameObject {
     boolean selected = false;
     boolean moving = false;
 
+    ConcreteUnit cu;
+    AbstractUnit au;
+
     //these are ints to track where the unit needs to move to and how fast
     int destinationX = 0;
     int destinationY = 0;
@@ -22,9 +25,10 @@ public class Player extends GameObject {
     Bubble head = null;
 
     //basic constructor
-    public Player(int x, int y){
+    public Player(ConcreteUnit cu){
 
-        super(x,y,50);
+        super(cu.getX(), cu.getY(), cu.radius);
+        this.cu = cu;
 
     }
 
@@ -104,14 +108,25 @@ public class Player extends GameObject {
     }
     
    
+    public void setPos(int x, int y){
+
+        AbstractUnit temp = au;
+        while(temp!= null){
+            temp.setPos(x, y);
+            temp = temp.next;
+        }
+
+    }
     
 
     public void draw(GraphicsContext gc){
 
+        
         //moves the unit
         if(moving){
             x+=velX;
             y+=velY;
+            setPos((int)(x),(int)(y));
 
             //stops moving if at the destination
             if(x<destinationX+1 && x>destinationX-1){
@@ -123,24 +138,9 @@ public class Player extends GameObject {
 
         }
 
-        //draws based on selected status
-        if(!selected){
-            gc.setFill(col);
-            gc.fillOval(x, y, radius, radius);
-
-        }
-
-        if(selected){
-            gc.setFill(Color.WHITE);
-            gc.fillOval(x, y, radius, radius);
-
-            gc.setFill(col);
-            gc.fillOval(x+2, y+2, radius-4, radius-4);
-
-        }
 
        //removeBubbles();
-
+        /*
         Bubble temp = head;
 
         while(temp!=null){
@@ -150,7 +150,10 @@ public class Player extends GameObject {
             temp = temp.getNext();
             
         }
-        
+        */
+
+        au.draw(gc);
+
     }
 
     public void removeBubbles(){
@@ -188,15 +191,6 @@ public class Player extends GameObject {
 
     public void run(){
 
-        //Dr. Mood "start with run and draw"
-
-        for(int i=0; i<nodes.size(); i++){
-
-            //nodes.get(i).command();
-
-        }
-
-        //are bubbles (the ones being shot) included here?
 
     }
 

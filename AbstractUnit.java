@@ -18,6 +18,9 @@ import javafx.scene.shape.Circle;
 
 public abstract class AbstractUnit extends GameObject {
     
+    protected AbstractUnit next;
+   
+    public abstract AbstractUnit getNext();
     
     public abstract void draw(GraphicsContext gc);
     public abstract void setPos(int x, int y);

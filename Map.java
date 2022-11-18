@@ -88,6 +88,7 @@ public class Map
          }
          AU.get(i).setPos(x, y);
          CU.get(i).setSide(side);
+         CU.get(i).setPos(x, y);
          //CU.get(i).isSelected(true);
          
       

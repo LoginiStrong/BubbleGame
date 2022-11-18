@@ -33,7 +33,7 @@ public class Game extends Canvas
    //UnitFactory UF = new UnitFactory(30, dud);
   // BubbleFactory BF = new BubbleFactory(0, -10, 1, 100, .5, 10, .1, 150, 2.5, UF.getLast());
    
-   Player p1 = new Player(100,100);
+   ArrayList<Player> players = new ArrayList<Player>();
 
    String com = "";
 
@@ -61,7 +61,6 @@ public class Game extends Canvas
    {
       clear(); 
      
-   
       try
       {
          Scanner scan = new Scanner(new File(mapString));
@@ -70,6 +69,14 @@ public class Game extends Canvas
          xTranslate = (800-theMap.getXSize())/2;
          yTranslate = (600 - theMap.getYSize())/2;
       
+         for(int i=0; i<theMap.CU.size(); i++){
+            ConcreteUnit c = theMap.getConcreteUnits().get(i);
+            
+            Player p = new Player(c);
+            p.au = theMap.getUnits().get(i);
+            players.add(p);
+         
+         }
          
       }
       catch(Exception e)
@@ -124,15 +131,14 @@ public class Game extends Canvas
       theMap.draw(gc);
 
       //draws the player/unit
-      p1.draw(gc);
+      for(int i=0; i<players.size(); i++){
+         players.get(i).draw(gc);
+
+      }
       //hD.run();
       //bD.draw(gc);
       //UF.getLast().draw(gc);
-      for (int i = 0; i < AU.size(); i++)
-      {
-      //System.out.println(AU.size());
-         (AU.get(i)).draw(gc);
-      }
+      
       //System.out.println((UF.getLast());
       
 
