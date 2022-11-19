@@ -24,13 +24,87 @@ public class Player extends GameObject {
 
     Bubble head = null;
 
+    float centerX = 0, centerY = 0;
+
+    int range = 0;
+    double refireSpeed = 0;
+
+    long currentTime = System.currentTimeMillis();
+
     //basic constructor
-    public Player(ConcreteUnit cu){
+    public Player(ConcreteUnit cu, AbstractUnit au){
 
         super(cu.getX(), cu.getY(), cu.radius);
         this.cu = cu;
+        this.au = au;
+
+        centerX = x+radius;
+        centerY = y+radius;
+
+        setUpBubbleData();
 
     }
+
+    public boolean refire(){
+
+        long t2 = System.currentTimeMillis();
+
+        if(t2-currentTime>refireSpeed*1000){
+            currentTime = t2;
+            return true;
+        }
+        
+        return false;
+
+    }
+
+    public void setUpBubbleData(){
+
+        AbstractUnit temp = au;
+        while(temp!=null){
+            if(temp.getClass() == BubbleDecorator.class){
+                BubbleDecorator bubbs = (BubbleDecorator)(temp);
+
+                this.range = bubbs.range;
+                this.refireSpeed = bubbs.getFireRate();
+
+                System.out.println("Range: " + this.range);
+                System.out.println("RefireSpeed: " + this.refireSpeed);
+            }
+
+            temp=temp.getNext();
+
+        }
+
+    }
+
+
+    public boolean inRange(Player p){
+
+        if(p == this){
+            return false;
+        }
+
+        float xc = p.centerX;
+        float yc = p.centerY;
+
+        float distX = (centerX-xc)*(centerX-xc);
+        float distY = (centerY-yc)*(centerY-yc);
+
+        double distA = distX + distY;
+
+        double dist = Math.sqrt(distA);
+
+        //System.out.println(dist);
+        if(dist<range){
+            return true;
+        }
+
+        return false;
+
+    }
+
+
 
     //adds a bubble to the end
     public void addBubble(Bubble b){
@@ -138,6 +212,8 @@ public class Player extends GameObject {
 
         }
 
+        centerX = x+radius;
+        centerY = y+radius;
 
        //removeBubbles();
         /*

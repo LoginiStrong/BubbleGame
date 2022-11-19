@@ -71,9 +71,9 @@ public class Game extends Canvas
       
          for(int i=0; i<theMap.CU.size(); i++){
             ConcreteUnit c = theMap.getConcreteUnits().get(i);
+            AbstractUnit au = theMap.getUnits().get(i);
+            Player p = new Player(c,au);
             
-            Player p = new Player(c);
-            p.au = theMap.getUnits().get(i);
             players.add(p);
          
          }
@@ -141,6 +141,24 @@ public class Game extends Canvas
       
       //System.out.println((UF.getLast());
       
+      for(int i=0; i<players.size(); i++){
+         for(int j=0; j<players.size(); j++){
+            if(players.get(i).inRange(players.get(j))){
+               
+               float x1 = players.get(i).x;
+               float x2 = players.get(j).x;
+               float y1 = players.get(i).y;
+               float y2 = players.get(j).y;
+
+               if(players.get(i).refire()){
+                  Bubble b = new Bubble(x1,y1,x2,y2);
+                  addBubble(b);
+               }
+            }
+
+         }
+      }
+
 
       bit = new bIterator(BubbleSingle.getHead());
       BubbleSingle.setHead(bit.remove());

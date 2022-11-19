@@ -73,7 +73,7 @@ public class Bubble {
     }
 
     //constructor
-    public Bubble(float x, float y, int destinationX, int destinationY){
+    public Bubble(float x, float y, float destinationX, float destinationY){
 
         this.x = x;
         this.y = y;
