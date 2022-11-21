@@ -1,5 +1,6 @@
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.geometry.*;
 
 public class Bubble {
 
@@ -18,7 +19,12 @@ public class Bubble {
     //bubbles that this bubble links to
     Bubble next = null;
     Bubble previous = null;
-    
+
+    double damage = 0;
+
+    int speed = 0;
+
+    String playerSide = "";
 
     //this constructor is used to set the velocity of the bubble
     public Bubble(float x, float y, float velX, float velY, boolean placeholder){
@@ -30,6 +36,20 @@ public class Bubble {
         st = new Strategy0();
 
         lifetime = 5;
+    }
+
+    public boolean collision(Player p){
+
+        Rectangle2D r = new Rectangle2D(x,y,1,1);
+        Rectangle2D r2 = new Rectangle2D(p.x,p.y,p.radius,p.radius);
+
+        return(r.intersects(r2));
+
+    }
+
+
+    public double getDamage(){
+        return damage;
     }
 
     public void removeSelf(){

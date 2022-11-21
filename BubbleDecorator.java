@@ -32,6 +32,7 @@ public class BubbleDecorator extends DecoratorParent {
    double refire;
    int range; 
    double bubbleSize;
+   String playerSide = "";
    
    //Constructor to get the bubble attributes
    public BubbleDecorator(int rad, int bubbleX, int bubbleY, int type, int bubbleRad, double damage, int speed, double refire, int range, double bubbleSize, AbstractUnit next)
@@ -49,6 +50,18 @@ public class BubbleDecorator extends DecoratorParent {
       this.bubbleSize = bubbleSize;
    }
    
+   public Bubble getBubble(float x, float y, int destinationX, int destinationY){
+
+      Bubble b = new Bubble(x,y,destinationX, destinationY);
+      b.setStrategy(type);
+      b.damage = damage;
+      b.speed = speed;
+      b.playerSide = playerSide;
+
+      return b;
+   }
+
+
    //Method to run the bubble
    public void run()
    {

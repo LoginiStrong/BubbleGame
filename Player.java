@@ -24,12 +24,18 @@ public class Player extends GameObject {
 
     Bubble head = null;
 
+    boolean firesBubbles = false;
+
     float centerX = 0, centerY = 0;
 
-    int range = 0;
-    double refireSpeed = 0;
+    ArrayList<Integer> range = new ArrayList<Integer>();
+    ArrayList<Double> refireSpeed = new ArrayList<Double>();
+   
+    ArrayList<Long> currentTimes = new ArrayList<Long>();
 
-    long currentTime = System.currentTimeMillis();
+    ArrayList<BubbleDecorator> bubbleDecs = new ArrayList<BubbleDecorator>();
+
+    //long currentTime = System.currentTimeMillis();
 
     //basic constructor
     public Player(ConcreteUnit cu, AbstractUnit au){
@@ -45,12 +51,12 @@ public class Player extends GameObject {
 
     }
 
-    public boolean refire(){
+    public boolean refire(int index){
 
         long t2 = System.currentTimeMillis();
 
-        if(t2-currentTime>refireSpeed*1000){
-            currentTime = t2;
+        if(t2-currentTimes.get(index)>refireSpeed.get(index)*1000){
+            currentTimes.set(index, t2);
             return true;
         }
         
@@ -58,16 +64,42 @@ public class Player extends GameObject {
 
     }
 
+    public void damage(int dmg){
+
+        AbstractUnit temp = au;
+        while(temp!=null){
+
+            if(temp.getClass() == HealthDecorator.class){
+                
+                HealthDecorator h = (HealthDecorator)temp;
+                h.takeDamage(dmg);
+               
+            }
+
+            temp=temp.getNext();
+
+        }
+
+
+    }
+
+
     public void setUpBubbleData(){
 
         AbstractUnit temp = au;
         while(temp!=null){
+
             if(temp.getClass() == BubbleDecorator.class){
                 BubbleDecorator bubbs = (BubbleDecorator)(temp);
 
-                this.range = bubbs.range;
-                this.refireSpeed = bubbs.getFireRate();
+                firesBubbles = true;
 
+                range.add(bubbs.range);
+                refireSpeed.add(bubbs.getFireRate());
+                currentTimes.add(System.currentTimeMillis());
+
+                bubbs.playerSide = cu.side;
+                bubbleDecs.add(bubbs);
                 System.out.println("Range: " + this.range);
                 System.out.println("RefireSpeed: " + this.refireSpeed);
             }
@@ -78,8 +110,16 @@ public class Player extends GameObject {
 
     }
 
+    public Bubble getBubble(int destinationX, int destinationY, int index){
 
-    public boolean inRange(Player p){
+        
+        return bubbleDecs.get(index).getBubble(this.centerX, this.centerY, 
+            destinationX, destinationY);
+
+
+    }
+
+    public boolean inRange(Player p, int index){
 
         if(p == this){
             return false;
@@ -96,7 +136,7 @@ public class Player extends GameObject {
         double dist = Math.sqrt(distA);
 
         //System.out.println(dist);
-        if(dist<range){
+        if(dist<range.get(index)){
             return true;
         }
 

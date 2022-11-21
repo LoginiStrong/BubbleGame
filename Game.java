@@ -141,27 +141,33 @@ public class Game extends Canvas
       
       //System.out.println((UF.getLast());
       
-      for(int i=0; i<players.size(); i++){
-         for(int j=0; j<players.size(); j++){
-            if(players.get(i).inRange(players.get(j))){
-               
-               float x1 = players.get(i).x;
-               float x2 = players.get(j).x;
-               float y1 = players.get(i).y;
-               float y2 = players.get(j).y;
+      for(int i=0; i<players.size(); i++){ //compares each player to each other player
 
-               if(players.get(i).refire()){
-                  Bubble b = new Bubble(x1,y1,x2,y2);
-                  addBubble(b);
+         for(int j=0; j<players.size(); j++){
+
+            for(int q=0; q<players.get(i).bubbleDecs.size(); q++){ //for each bubble decorator
+
+               if(players.get(i).inRange(players.get(j), q) &&
+                  !players.get(i).cu.side.equals(players.get(j).cu.side)){
+                  
+                
+                  int x2 = (int)players.get(j).x;
+                  
+                  int y2 = (int)players.get(j).y;
+
+                  if(players.get(i).refire(q)){
+                     Bubble b = players.get(i).getBubble(x2, y2, q);
+                     addBubble(b);
+                  }
                }
             }
-
          }
       }
 
 
       bit = new bIterator(BubbleSingle.getHead());
       BubbleSingle.setHead(bit.remove());
+      //BubbleSingle.setHead(bit.collidingCheck(players));
       bit.draw(gc);
       BubbleSingle.bubbleLength();
 

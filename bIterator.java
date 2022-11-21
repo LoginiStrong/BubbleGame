@@ -43,6 +43,31 @@ import java.text.*;
       
       }
       
+      public Bubble collidingCheck(ArrayList<Player> p){
+
+         for(int i=0; i<p.size(); i++){
+
+            Bubble temp = head;
+
+            while(temp!=null){
+
+               if(temp.collision(p.get(i)) && !temp.playerSide.equals(p.get(i).cu.side)){
+                  p.get(i).damage((int)temp.damage);
+
+                  System.out.println("COL");
+
+               }
+
+
+            }
+
+         }
+
+         return head;
+
+      }
+
+
       public void setHead(Bubble b){
          head = b;
       }
@@ -85,17 +110,12 @@ import java.text.*;
                while(temp!=null){
 
                      if(temp.lifetime <=0){
-                        //System.out.println("Other Removed");
+                        
                         if(temp!=head){
                            Bubble temp2 = temp.getNext();
                            temp.removeSelf();
                            temp = temp2;
-                           // temp.getPrevious().setNext(temp.getNext());
-                           // temp.getNext().setPrev(temp.getPrevious());
-
-                       /*}
-                        else if(temp!=head){
-                            temp.getPrevious().setNext(null);*/
+                          
                         }
                         else{
                             head = temp.getNext();
