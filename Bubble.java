@@ -41,7 +41,7 @@ public class Bubble {
     public boolean collision(Player p){
 
         Rectangle2D r = new Rectangle2D(x,y,1,1);
-        Rectangle2D r2 = new Rectangle2D(p.x,p.y,p.radius,p.radius);
+        Rectangle2D r2 = new Rectangle2D(p.x,p.y,p.radius*2,p.radius*2);
 
         return(r.intersects(r2));
 
