@@ -119,6 +119,18 @@ public class Game extends Canvas
       com = s;
    }
 
+   public void removeDeadPlayers(){
+
+      for(int i=0; i<players.size(); i++){
+         if(players.get(i).isPlayerDead()){
+            players.remove(i);
+         }
+      }
+
+
+   }
+
+
    public void draw()
    {
       ArrayList<AbstractUnit> AU = theMap.getUnits();
@@ -164,6 +176,7 @@ public class Game extends Canvas
          }
       }
 
+      removeDeadPlayers();
 
       bit = new bIterator(BubbleSingle.getHead());
       BubbleSingle.setHead(bit.remove());

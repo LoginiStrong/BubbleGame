@@ -82,9 +82,6 @@ public class Player extends GameObject {
 
         }
 
-
-
-
         return isDead;
 
     }
