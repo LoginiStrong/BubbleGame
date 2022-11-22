@@ -24,28 +24,44 @@ public class Strategy1 extends Strategy{
             shift = (r.nextInt(10)-5)/2;
             shift2 = (r.nextInt(10)-5)/2; 
             Bubble b2 = new Bubble(b.x, b.y, (shift + b.velX)/10, (shift2 + b.velY)/10, true);
+            
 
             shift = (r.nextInt(10)-5)/2;
             shift2 = (r.nextInt(10)-5)/2; 
             Bubble b3= new Bubble(b.x, b.y, (shift + b.velX)/10, (shift2 + b.velY)/10, true);
-           
+            
+
             shift = (r.nextInt(10)-5)/2;
             shift2 = (r.nextInt(10)-5)/2; 
             Bubble b4 = new Bubble(b.x, b.y, (shift + b.velX)/10, (shift2 + b.velY)/10, true);
+            
 
             shift = (r.nextInt(10)-5)/2;
             shift2 = (r.nextInt(10)-5)/2; 
             Bubble b5 = new Bubble(b.x, b.y, (shift + b.velX)/10, (shift2 + b.velY)/10, true);
             
+
             shift = (r.nextInt(10)-5)/2;
             shift2 = (r.nextInt(10)-5)/2; 
             Bubble b6 = new Bubble(b.x, b.y, (shift + b.velX)/10, (shift2 + b.velY)/10, true);
-
+            
             b2.setStrategy(0);
             b3.setStrategy(0);
             b4.setStrategy(0);
             b5.setStrategy(0);
             b6.setStrategy(0);
+
+            b2.damage = b.damage;
+            b3.damage = b.damage;
+            b4.damage = b.damage;
+            b5.damage = b.damage;
+            b6.damage = b.damage;
+
+            b2.playerSide = b.playerSide;
+            b3.playerSide = b.playerSide;
+            b4.playerSide = b.playerSide;
+            b5.playerSide = b.playerSide;
+            b6.playerSide = b.playerSide;
 
             //links the bubbles together
             b2.setNext(b3);

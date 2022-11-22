@@ -52,6 +52,25 @@ public class Strategy2 extends Strategy{
             b7.setNext(b8);
             b8.setPrev(b7);
 
+            b1.damage = b.damage;
+            b2.damage = b.damage;
+            b3.damage = b.damage;
+            b4.damage = b.damage;
+            b5.damage = b.damage;
+            b6.damage = b.damage;
+            b7.damage = b.damage;
+            b8.damage = b.damage;
+           
+            b1.playerSide = b.playerSide;
+            b2.playerSide = b.playerSide;
+            b3.playerSide = b.playerSide;
+            b4.playerSide = b.playerSide;
+            b5.playerSide = b.playerSide;
+            b6.playerSide = b.playerSide;
+            b7.playerSide = b.playerSide;
+            b8.playerSide = b.playerSide;
+
+
             //connects the bubbles to the head
             if(b.next==null){
                 b.next = b1;
