@@ -167,7 +167,7 @@ public class Game extends Canvas
 
       bit = new bIterator(BubbleSingle.getHead());
       BubbleSingle.setHead(bit.remove());
-      //BubbleSingle.setHead(bit.collidingCheck(players));
+      BubbleSingle.setHead(bit.collidingCheck(players));
       bit.draw(gc);
       BubbleSingle.bubbleLength();
 

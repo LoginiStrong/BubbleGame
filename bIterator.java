@@ -54,11 +54,11 @@ import java.text.*;
                if(temp.collision(p.get(i)) && !temp.playerSide.equals(p.get(i).cu.side)){
                   p.get(i).damage((int)temp.damage);
 
-                  System.out.println("COL");
+                  temp.removeSelf();
 
                }
 
-
+               temp = temp.getNext();
             }
 
          }
