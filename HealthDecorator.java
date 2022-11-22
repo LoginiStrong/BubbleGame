@@ -26,7 +26,7 @@ public class HealthDecorator extends DecoratorParent {
    int healthX;
    int healthY;
    int maxHP;
-   int HP;
+   double HP;
    int healthRad;
    boolean dead = false;
    int green = 255;
@@ -49,7 +49,7 @@ public class HealthDecorator extends DecoratorParent {
    
    public void run()
    {
-      green = green*(HP/maxHP);
+      green = (int)(255*(HP/maxHP));
    
       if (HP <= 0)
       {
@@ -84,12 +84,12 @@ public class HealthDecorator extends DecoratorParent {
       this.y = y;
    }
 
-   public int getHP()
+   public double getHP()
    {
       return HP;
    }
 
-   public void takeDamage(int damage)
+   public void takeDamage(double damage)
    {
       HP -= damage;
    }

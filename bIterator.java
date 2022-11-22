@@ -52,7 +52,7 @@ import java.text.*;
             while(temp!=null){
 
                if(temp.collision(p.get(i)) && !temp.playerSide.equals(p.get(i).cu.side)){
-                  p.get(i).damage((int)temp.damage);
+                  p.get(i).damage(temp.getDamage());
 
                   temp.removeSelf();
 

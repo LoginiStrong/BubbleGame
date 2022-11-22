@@ -64,7 +64,7 @@ public class Player extends GameObject {
 
     }
 
-    public void damage(int dmg){
+    public void damage(double dmg){
 
         AbstractUnit temp = au;
         while(temp!=null){
