@@ -163,9 +163,9 @@ public class Game extends Canvas
                   !players.get(i).cu.side.equals(players.get(j).cu.side)){
                   
                 
-                  int x2 = (int)players.get(j).x;
+                  int x2 = (int)players.get(j).centerX;
                   
-                  int y2 = (int)players.get(j).y;
+                  int y2 = (int)players.get(j).centerY;
 
                   if(players.get(i).refire(q)){
                      Bubble b = players.get(i).getBubble(x2, y2, q);
