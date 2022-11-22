@@ -202,8 +202,8 @@ public class Player extends GameObject {
         float diffx = 0;
         float diffy = 0;
 
-        diffx = x2 - this.x;
-        diffy = y2 - this.y;
+        diffx = x2 - this.centerX;
+        diffy = y2 - this.centerY;
                 
         double mag = Math.sqrt(diffx*diffx + diffy*diffy);
                 
@@ -265,8 +265,8 @@ public class Player extends GameObject {
             setPos((int)(x),(int)(y));
 
             //stops moving if at the destination
-            if(x<destinationX+1 && x>destinationX-1){
-                if(y<destinationY+1 && y>destinationY-1){
+            if(centerX<destinationX+1 && centerX>destinationX-1){
+                if(centerY<destinationY+1 && centerY>destinationY-1){
                     moving = false;
                 }
 
