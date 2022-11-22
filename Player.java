@@ -64,6 +64,31 @@ public class Player extends GameObject {
 
     }
 
+    public boolean isPlayerDead(){
+
+        boolean isDead = false;
+
+        AbstractUnit temp = au;
+        while(temp!=null){
+
+            if(temp.getClass() == HealthDecorator.class){
+                
+                HealthDecorator h = (HealthDecorator)temp;
+                isDead = h.getDead();
+               
+            }
+
+            temp=temp.getNext();
+
+        }
+
+
+
+
+        return isDead;
+
+    }
+
     public void damage(double dmg){
 
         AbstractUnit temp = au;
